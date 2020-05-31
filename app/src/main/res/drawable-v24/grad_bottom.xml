@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+            <!-- Gray shadow. -->
+            <item android:left="3dp" android:top="5dp">
+                <shape>
+                    <solid android:color="#7f000000" />
+                    <corners android:radius="8dp" />
+                </shape>
+            </item>
+            <!-- White foreground. -->
+            <item android:bottom="5dp">
+                <shape>
+                    <solid android:color="#ffffff" />
+                    <corners android:radius="8dp" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+
+>>>>>>> c8ee35a7b764b7cc81f6891c72c6e3e6277dbb13
+</selector>
