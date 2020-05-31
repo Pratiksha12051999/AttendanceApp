@@ -3,11 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/gradient_background"
     android:layout_height="match_parent"
-    tools:context=".AllTabsActivity">
+    tools:context=".Tabs"
+    android:background="@drawable/gradient_background">
 
-<<<<<<< HEAD
     <androidx.gridlayout.widget.GridLayout
         android:id="@+id/mainGrid"
         android:layout_width="0dp"
@@ -20,21 +19,6 @@
         android:background="#66000000"
         android:padding="10dp"
         app:columnCount="3"
-=======
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="145dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="148dp"
-        android:layout_marginLeft="148dp"
-        android:layout_marginTop="324dp"
-        android:layout_marginEnd="148dp"
-        android:layout_marginRight="148dp"
-        android:layout_marginBottom="358dp"
-        android:onClick="showTabs"
-        android:text="Hello World"
-        android:textSize="20sp"
->>>>>>> c8ee35a7b764b7cc81f6891c72c6e3e6277dbb13
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -62,7 +46,6 @@
                 android:background="@drawable/grad_bottom"
                 android:drawableTop="@drawable/score"
                 android:gravity="center"
-                android:onClick="showSemester"
                 android:paddingTop="10dp"
                 app:layout_column="0"
                 app:layout_columnWeight="1"
@@ -377,7 +360,7 @@
 
             <TextView
                 android:gravity="center"
-                android:text="Contact us"
+                android:text="Contact Us"
                 android:textColor="#ffffff"
                 android:textSize="15sp"
                 android:textStyle="bold"
@@ -414,5 +397,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivVes" />
+
+    <TextView
+        android:id="@+id/textIconAttributions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:onClick="showAttributions"
+        android:text="Icon attributions"
+        android:textColor="#FFFFFF"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainGrid" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
