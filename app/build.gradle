@@ -39,6 +39,7 @@ dependencies {
     //noinspection GradleCompatible
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.rengwuxian.materialedittext:library:2.1.4'
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
 }
 apply plugin: 'com.google.gms.google-services'  // Google Services plugin
 apply plugin: 'com.android.application'
