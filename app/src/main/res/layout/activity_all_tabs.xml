@@ -17,6 +17,7 @@
         android:layout_marginEnd="148dp"
         android:layout_marginRight="148dp"
         android:layout_marginBottom="358dp"
+        android:onClick="showTabs"
         android:text="Hello World"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"

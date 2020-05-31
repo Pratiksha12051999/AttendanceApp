@@ -13,6 +13,11 @@ public class AllTabsActivity extends AppCompatActivity {
     Button logoutButton;
     FirebaseAuth mAuth;
 
+    public void showTabs(View view){
+        Intent tabs=new Intent(this, Tabs.class);
+        startActivity(tabs);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
