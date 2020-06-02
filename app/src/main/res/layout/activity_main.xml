@@ -76,7 +76,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ves" />
+        app:srcCompat="@drawable/veslarge" />
 
     <Button
         android:id="@+id/registerTeacherButton"

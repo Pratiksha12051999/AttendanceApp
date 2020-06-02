@@ -11,8 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".Attributions"></activity>
-        <activity android:name=".Tabs" />
+
+        <activity android:name=".Attributions" />
+        <activity android:name=".Tabs"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".TeacherRegister" />
         <activity android:name=".AllTabsActivity" />
         <activity android:name=".TeacherActivity" />
