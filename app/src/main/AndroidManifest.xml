@@ -11,15 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-<<<<<<< HEAD
         <activity android:name=".Attributions" />
         <activity android:name=".Tabs" />
-=======
-
-        <activity android:name=".Attributions" />
-        <activity android:name=".Tabs"
-            android:theme="@style/AppTheme.NoActionBar"/>
->>>>>>> 2763691518cc2e1b90ddfb12191983b3596f0f4d
         <activity android:name=".TeacherRegister" />
         <activity android:name=".AllTabsActivity" />
         <activity android:name=".TeacherActivity" />
