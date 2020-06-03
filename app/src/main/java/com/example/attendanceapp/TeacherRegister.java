@@ -19,8 +19,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class TeacherRegister extends AppCompatActivity {
     EditText emailTeacherRegister;
@@ -65,6 +69,12 @@ public class TeacherRegister extends AppCompatActivity {
             public void onClick(View v) {
                 final String email = emailTeacherRegister.getText().toString().trim();
                 final String pwd = passwordTeacherRegister.getText().toString().trim();
+                String emailIsValid = "@ves.ac.in";
+                Boolean emailValidBooleanteacher = false;
+                if(email.contains(emailIsValid))
+                {
+                    emailValidBooleanteacher = true;
+                }
                 if(email.isEmpty()){
                     emailTeacherRegister.setError("Please enter an Email");
                     emailTeacherRegister.requestFocus();
@@ -78,37 +88,59 @@ public class TeacherRegister extends AppCompatActivity {
                     passwordTeacherRegister.setError("Password should be greater than 6 characters");
                     passwordTeacherRegister.requestFocus();
                 }
-                else if(!(email.isEmpty()) && !(pwd.isEmpty())){
-                    firebaseAuth = FirebaseAuth.getInstance();
-                    firebaseAuth.createUserWithEmailAndPassword(email, pwd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                else if(!(email.isEmpty()) && !(pwd.isEmpty()) && emailValidBooleanteacher){
+                    Query query1 = FirebaseDatabase.getInstance().getReference("TeacherData")
+                            .orderByChild("email")
+                            .equalTo(email);
+                    query1.addValueEventListener(new ValueEventListener() {
                         @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()){
-                                Teacher teacher = new Teacher(
-                                        email,
-                                        pwd
-                                );
-                                FirebaseDatabase.getInstance().getReference("Teachers")
-                                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                        .setValue(teacher).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {
+                            if(dataSnapshot1.exists()){
+                                firebaseAuth = FirebaseAuth.getInstance();
+                                firebaseAuth.createUserWithEmailAndPassword(email, pwd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                     @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
+                                    public void onComplete(@NonNull Task<AuthResult> task) {
                                         if(task.isSuccessful()){
-                                            Toast.makeText(TeacherRegister.this, "Teacher Registered Successfully", Toast.LENGTH_SHORT).show();
-                                            Intent goToLogin = new Intent(TeacherRegister.this, TeacherActivity.class);
-                                            startActivity(goToLogin);
+                                            Teacher teacher = new Teacher(
+                                                    email,
+                                                    pwd
+                                            );
+                                            FirebaseDatabase.getInstance().getReference("Teachers")
+                                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                                    .setValue(teacher).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    if(task.isSuccessful()){
+                                                        Toast.makeText(TeacherRegister.this, "Teacher Registered Successfully", Toast.LENGTH_SHORT).show();
+                                                        Intent goToLogin = new Intent(TeacherRegister.this, TeacherActivity.class);
+                                                        startActivity(goToLogin);
+                                                    }
+                                                    else{
+                                                        Toast.makeText(TeacherRegister.this, "Teacher Registeration unsuccessful", Toast.LENGTH_SHORT).show();
+                                                    }
+                                                }
+                                            });
                                         }
-                                        else{
-                                            Toast.makeText(TeacherRegister.this, "Teacher Registeration unsuccessful", Toast.LENGTH_SHORT).show();
+                                        else {
+                                            Toast.makeText(TeacherRegister.this, "Error during Registration", Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 });
                             }
-                            else {
-                                Toast.makeText(TeacherRegister.this, "Error during Registration", Toast.LENGTH_SHORT).show();
+                            else{
+                                Toast.makeText(getApplicationContext(), "Teacher not found!", Toast.LENGTH_SHORT).show();
                             }
                         }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                            throw databaseError.toException();
+                        }
                     });
+                }
+                else{
+                    emailTeacherRegister.setError("Please enter VES Email ID");
+                    emailTeacherRegister.requestFocus();
                 }
             }
         });
