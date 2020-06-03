@@ -8,7 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+<<<<<<< HEAD
     <style name="NoActionBar">
+=======
+    <style name="AppTheme.NoActionBar">
+>>>>>>> 2763691518cc2e1b90ddfb12191983b3596f0f4d
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
