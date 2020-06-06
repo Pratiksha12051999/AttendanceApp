@@ -77,7 +77,7 @@ public class TeacherActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
                                 Toast.makeText(TeacherActivity.this, "Teacher Logged In", Toast.LENGTH_SHORT).show();
-                                Intent goToAllTabs = new Intent(TeacherActivity.this, AllTabsActivity.class);
+                                Intent goToAllTabs = new Intent(TeacherActivity.this, Teacher_All_Tabs.class);
                                 startActivity(goToAllTabs);
                             }
                             else{

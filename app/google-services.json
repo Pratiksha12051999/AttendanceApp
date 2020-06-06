@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "183568993857-j07n8i3o4lmu8spe6i544i6qpk046nck.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.attendanceapp",
+            "certificate_hash": "c327bcfa56f138f7247223fb94b776f3accf5be8"
+          }
+        },
+        {
           "client_id": "183568993857-n8c17r2amh3hg5o5ubb0fmi4j4s8ft8d.apps.googleusercontent.com",
           "client_type": 3
         }
