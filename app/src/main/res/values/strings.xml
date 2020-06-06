@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">AttendanceApp</string>
+    <string name="title_activity_draweractiviy">draweractiviy</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="attendance">ATTENDANCE</string>
+    <string name="hello_world">Hello World</string>
 </resources>

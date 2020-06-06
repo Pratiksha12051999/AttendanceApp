@@ -11,18 +11,24 @@ import androidx.gridlayout.widget.GridLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class Teacher_All_Tabs extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class Teacher_All_Tabs extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
     FirebaseAuth mAuth;
 
-    public void showAttendance(View view){
+    public void showAttributions(View view) {
+        Intent attris = new Intent(this, Attributions.class);
+        startActivity(attris);
+    }
+
+    public void showAttendance(View view) {
         Intent goToAttendancePage = new Intent(Teacher_All_Tabs.this, TeacherAttendance.class);
         startActivity(goToAttendancePage);
     }

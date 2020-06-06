@@ -21,8 +21,8 @@ public class Tabs extends AppCompatActivity implements NavigationView.OnNavigati
     private DrawerLayout drawer;
     FirebaseAuth mAuth;
 
-    public void showAttributions(View view){
-        Intent attris=new Intent(this, Attributions.class);
+    public void showAttributions(View view) {
+        Intent attris = new Intent(this, Attributions.class);
         startActivity(attris);
     }
 
@@ -30,29 +30,29 @@ public class Tabs extends AppCompatActivity implements NavigationView.OnNavigati
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tabs);
-        GridLayout mainGrid=(GridLayout)findViewById(R.id.mainGrid);
+        GridLayout mainGrid = (GridLayout) findViewById(R.id.mainGrid);
         mainGrid.setTranslationY(10000);
         mainGrid.animate().translationYBy(-10000).setDuration(1000);
 
-        Toolbar toolbar=findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        drawer=findViewById(R.id.drawer_layout);
+        drawer = findViewById(R.id.drawer_layout);
 
-        ActionBarDrawerToggle toggle=new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView=findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
     }
 
     @Override
     public void onBackPressed() {
-        if(drawer.isDrawerOpen(GravityCompat.START)){
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         }
     }
@@ -60,10 +60,13 @@ public class Tabs extends AppCompatActivity implements NavigationView.OnNavigati
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         mAuth = FirebaseAuth.getInstance();
-        switch (item.getItemId()){
-            case R.id.nav_announcement: break;
-            case R.id.nav_share: break;
-            case R.id.nav_contact: break;
+        switch (item.getItemId()) {
+            case R.id.nav_announcement:
+                break;
+            case R.id.nav_share:
+                break;
+            case R.id.nav_contact:
+                break;
             case R.id.nav_logout:
                 FirebaseAuth.getInstance().signOut();
                 Intent goBackToLogin = new Intent(Tabs.this, MainActivity.class);
