@@ -16,24 +16,16 @@ import android.view.View;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class Tabs extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class Semesters extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
 
     private DrawerLayout drawer;
     FirebaseAuth mAuth;
 
-    public void showAttributions(View view) { startActivity(new Intent(this, Attributions.class)); }
-
-    public void showResults(View view) {
-        startActivity(new Intent(this, Semesters.class));
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tabs);
-        GridLayout mainGrid = (GridLayout) findViewById(R.id.mainGrid);
-        mainGrid.setTranslationY(10000);
-        mainGrid.animate().translationYBy(-10000).setDuration(1000);
+        setContentView(R.layout.activity_semesters);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -49,7 +41,22 @@ public class Tabs extends AppCompatActivity implements NavigationView.OnNavigati
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        GridLayout gridLayout=(GridLayout)findViewById(R.id.grid);
+        gridLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch(v.getId())
+                {
+                    case R.id.cardSem1: break;
+                    case R.id.cardSem2: break;
+                    case R.id.cardSem3: break;
+                    case R.id.cardSem4: break;
+
+                }
+            }
+        });
     }
+
 
     @Override
     public void onBackPressed() {
@@ -70,7 +77,7 @@ public class Tabs extends AppCompatActivity implements NavigationView.OnNavigati
                 break;
             case R.id.nav_logout:
                 FirebaseAuth.getInstance().signOut();
-                Intent goBackToLogin = new Intent(Tabs.this, MainActivity.class);
+                Intent goBackToLogin = new Intent(Semesters.this, MainActivity.class);
                 startActivity(goBackToLogin);
         }
         return true;

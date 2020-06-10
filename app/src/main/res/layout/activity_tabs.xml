@@ -17,19 +17,19 @@
         android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorPrimary"
-            android:id="@+id/toolbar"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            android:backgroundTint="@android:color/transparent"
             android:elevation="0dp"
-            android:backgroundTint="@android:color/transparent"/>
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 
@@ -76,6 +76,7 @@
                     android:background="@drawable/grad_bottom"
                     android:drawableTop="@drawable/score"
                     android:gravity="center"
+                    android:onClick="showResults"
                     android:paddingTop="10dp"
                     app:layout_column="0"
                     app:layout_columnWeight="1"
@@ -115,6 +116,7 @@
                     android:layout_margin="10dp"
                     android:background="@drawable/grad_bottom"
                     android:drawableTop="@drawable/paper"
+                    android:onClick="showResults"
                     android:paddingTop="10dp"
                     app:layout_column="0"
                     app:layout_columnWeight="1"
