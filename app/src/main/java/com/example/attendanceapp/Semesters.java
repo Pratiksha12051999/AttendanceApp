@@ -4,14 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.gridlayout.widget.GridLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.GridLayout;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -41,8 +42,35 @@ public class Semesters extends AppCompatActivity implements NavigationView.OnNav
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        GridLayout gridLayout=(GridLayout)findViewById(R.id.grid);
-        gridLayout.setOnClickListener(new View.OnClickListener() {
+        android.widget.GridLayout gridLayout=(GridLayout)findViewById(R.id.grid);
+
+        int childCount = gridLayout.getChildCount();
+
+        for (int i= 0; i < childCount; i++){
+            CardView container = (androidx.cardview.widget.CardView) gridLayout.getChildAt(i);
+            container.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View view){
+                    switch(view.getId())
+                    {
+                        case R.id.cardSem1: break;
+                        case R.id.cardSem2: break;
+                        case R.id.cardSem3: break;
+                        case R.id.cardSem4: break;
+                        case R.id.cardSem5: startActivity(new Intent(Semesters.this, Sem5.class));
+                            break;
+                        case R.id.cardSem6: startActivity(new Intent(Semesters.this, Sem6.class));
+                            break;
+                        case R.id.cardSem7: startActivity(new Intent(Semesters.this, Sem7.class));
+                            break;
+                        case R.id.cardSem8: startActivity(new Intent(Semesters.this, Sem8.class));
+                            break;
+                        default: break;
+                    }
+                }
+            });
+        }
+
+        /*gridLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 switch(v.getId())
@@ -51,10 +79,18 @@ public class Semesters extends AppCompatActivity implements NavigationView.OnNav
                     case R.id.cardSem2: break;
                     case R.id.cardSem3: break;
                     case R.id.cardSem4: break;
-
+                    case R.id.cardSem5: startActivity(new Intent(Semesters.this, Sem5.class));
+                                        break;
+                    case R.id.cardSem6: startActivity(new Intent(Semesters.this, Sem6.class));
+                                        break;
+                    case R.id.cardSem7: startActivity(new Intent(Semesters.this, Sem7.class));
+                                        break;
+                    case R.id.cardSem8: startActivity(new Intent(Semesters.this, Sem8.class));
+                                        break;
+                    default: break;
                 }
             }
-        });
+        });*/
     }
 
 
@@ -63,6 +99,7 @@ public class Semesters extends AppCompatActivity implements NavigationView.OnNav
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         }
+        super.onBackPressed();
     }
 
     @Override
