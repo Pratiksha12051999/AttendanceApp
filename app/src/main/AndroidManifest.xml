@@ -17,8 +17,8 @@
         <activity android:name=".AllTabsActivity" />
         <activity android:name=".TeacherActivity" />
         <activity android:name=".RegisterActivity" />
+        <activity android:name=".Announcement"/>
         <activity android:name=".MainActivity">
-        <activity android:name=".Announcement">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
