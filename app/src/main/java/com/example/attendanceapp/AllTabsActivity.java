@@ -11,7 +11,6 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class AllTabsActivity extends AppCompatActivity {
     Button logoutButton;
-    Button announcementButton;
     FirebaseAuth mAuth;
 
     public void showTabs(View view){
@@ -25,8 +24,7 @@ public class AllTabsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_all_tabs);
         logoutButton = findViewById(R.id.button);
         mAuth = FirebaseAuth.getInstance();
-        announcementButton = findViewById(R.id.button2);
-        
+
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,16 +33,5 @@ public class AllTabsActivity extends AppCompatActivity {
                 startActivity(goBackToLogin);
             }
         });
-
-        announcementButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent goToAnnouncement;
-                goToAnnouncement = new Intent(AllTabsActivity.this, Announcement.class);
-                startActivity(goToAnnouncement);
-            }
-        });
-
-
     }
 }

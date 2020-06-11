@@ -6,9 +6,11 @@ import androidx.gridlayout.widget.GridLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.GridView;
 
 public class Tabs extends AppCompatActivity {
-
+    Button announcementButton;
     public void showAttributions(View view){
         Intent attris=new Intent(this, Attributions.class);
         startActivity(attris);
@@ -21,5 +23,16 @@ public class Tabs extends AppCompatActivity {
         GridLayout mainGrid=(GridLayout)findViewById(R.id.mainGrid);
         mainGrid.setTranslationY(10000);
         mainGrid.animate().translationYBy(-10000).setDuration(1000);
+
+        announcementButton = findViewById(R.id.cell5_);;
+        announcementButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToAnnouncement;
+                goToAnnouncement = new Intent(Tabs.this, Announcement.class);
+                startActivity(goToAnnouncement);
+            }
+        });
     }
+
 }

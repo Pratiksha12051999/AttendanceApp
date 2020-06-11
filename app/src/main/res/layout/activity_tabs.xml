@@ -94,7 +94,7 @@
 
             <TextView
                 android:gravity="center"
-                android:text="Assignments"
+                android:text="@string/assignments"
                 android:textColor="#ffffff"
                 android:textSize="15sp"
                 android:textStyle="bold"
@@ -196,6 +196,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/cell5_"
                 android:layout_margin="10dp"
                 android:background="@drawable/grad_bottom"
                 android:drawableTop="@drawable/announcement"
