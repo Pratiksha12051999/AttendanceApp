@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Sem3Activity"
-    android:background="@drawable/bg">
+    tools:context=".Sem3"
+    android:background="@drawable/gradient_background">
 
     <TableLayout
         android:id="@+id/tableLayout"
@@ -101,7 +101,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/am3"
+                android:id="@+id/AM3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="2dp"
@@ -115,7 +115,7 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/textam31"
+                android:id="@+id/textAM31"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
@@ -128,7 +128,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textam32"
+                android:id="@+id/textAM32"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
@@ -141,7 +141,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textam33"
+                android:id="@+id/textAM33"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
@@ -154,7 +154,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textam34"
+                android:id="@+id/textAM34"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
@@ -173,7 +173,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/dm"
+                android:id="@+id/DM"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="2dp"
@@ -187,7 +187,7 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/textdm1"
+                android:id="@+id/textDM1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
@@ -200,7 +200,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textdm2"
+                android:id="@+id/textDM2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
@@ -213,7 +213,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textdm3"
+                android:id="@+id/textDM3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
@@ -226,7 +226,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textdm4"
+                android:id="@+id/textDM4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
@@ -245,7 +245,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/dlda"
+                android:id="@+id/DLDA"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="2dp"
@@ -259,7 +259,7 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/textdlda1"
+                android:id="@+id/textDLDA1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
@@ -272,7 +272,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textdlda2"
+                android:id="@+id/textDLDA2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
@@ -285,7 +285,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textdlda3"
+                android:id="@+id/textDLDA3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
@@ -298,7 +298,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textdlda4"
+                android:id="@+id/textDLDA4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
@@ -317,7 +317,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/eccf"
+                android:id="@+id/ECCF"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="2dp"
@@ -331,7 +331,7 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/texteccf1"
+                android:id="@+id/textECCF1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
@@ -344,7 +344,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/texteccf2"
+                android:id="@+id/textECCF2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
@@ -357,7 +357,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/texteccf3"
+                android:id="@+id/textECCF3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
@@ -370,7 +370,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/texteccf4"
+                android:id="@+id/textECCF4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
@@ -389,7 +389,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/ds"
+                android:id="@+id/DS"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="2dp"
@@ -403,7 +403,7 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/textds1"
+                android:id="@+id/textDS1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
@@ -416,7 +416,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textds2"
+                android:id="@+id/textDS2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
@@ -429,7 +429,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textds3"
+                android:id="@+id/textDS3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
@@ -442,7 +442,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textds4"
+                android:id="@+id/textDS4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"

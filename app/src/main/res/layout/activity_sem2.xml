@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schEDas.android.com/apk/res-auto"
+    xmlns:app2="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schEDas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background"
-    tools:context=".Sem6">
+    tools:context=".SED2">
 
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#000000"
+        app2:layout_constraintBottom_toBottomOf="parent"
+        app2:layout_constraintEnd_toEndOf="parent"
+        app2:layout_constraintStart_toStartOf="parent"
+        app2:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,11 +35,11 @@
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="1dp"
                 android:background="#ffffff"
+                android:fontFamily="@font/acme"
                 android:padding="10dp"
                 android:text="Subject"
                 android:textColor="#000000"
-                android:textSize="20sp"
-                app:fontFamily="@font/acme" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textIA1"
@@ -45,11 +50,11 @@
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="1dp"
                 android:background="#ffffff"
+                android:fontFamily="@font/acme"
                 android:padding="10dp"
                 android:text="IA-1"
                 android:textColor="#000000"
-                android:textSize="20sp"
-                app:fontFamily="@font/acme" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textIA2"
@@ -60,11 +65,11 @@
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="1dp"
                 android:background="#ffffff"
+                android:fontFamily="@font/acme"
                 android:padding="10dp"
                 android:text="IA-2"
                 android:textColor="#000000"
-                android:textSize="20sp"
-                app:fontFamily="@font/acme" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textAvg"
@@ -75,11 +80,11 @@
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="1dp"
                 android:background="#ffffff"
+                android:fontFamily="@font/acme"
                 android:padding="10dp"
                 android:text="Avg "
                 android:textColor="#000000"
-                android:textSize="20sp"
-                app:fontFamily="@font/acme" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textSem"
@@ -90,11 +95,11 @@
                 android:layout_marginRight="2dp"
                 android:layout_marginBottom="1dp"
                 android:background="#ffffff"
+                android:fontFamily="@font/acme"
                 android:padding="10dp"
                 android:text="Sem"
                 android:textColor="#000000"
-                android:textSize="20sp"
-                app:fontFamily="@font/acme" />
+                android:textSize="20sp" />
         </TableRow>
 
         <TableRow
@@ -102,7 +107,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textSE"
+                android:id="@+id/AM2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="2dp"
@@ -110,14 +115,14 @@
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="1dp"
                 android:background="#ffffff"
+                android:fontFamily="@font/acme"
                 android:padding="10dp"
-                android:text="SE"
+                android:text="AM-2"
                 android:textColor="#000000"
-                android:textSize="20sp"
-                app:fontFamily="@font/acme" />
+                android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/textSE1"
+                android:id="@+id/textAM21"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
@@ -130,7 +135,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textSE2"
+                android:id="@+id/textAM22"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
@@ -143,7 +148,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textSE3"
+                android:id="@+id/textAM23"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
@@ -156,7 +161,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textSE4"
+                android:id="@+id/textAM24"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
@@ -175,7 +180,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textSPCC"
+                android:id="@+id/AP2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="2dp"
@@ -183,14 +188,14 @@
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="1dp"
                 android:background="#ffffff"
+                android:fontFamily="@font/acme"
                 android:padding="10dp"
-                android:text="SPCC"
+                android:text="AP-2"
                 android:textColor="#000000"
-                android:textSize="20sp"
-                app:fontFamily="@font/acme" />
+                android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/textSPCC1"
+                android:id="@+id/textAP21"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
@@ -203,7 +208,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textSPCC2"
+                android:id="@+id/textAP22"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
@@ -216,7 +221,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textSPCC3"
+                android:id="@+id/textAP23"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
@@ -229,7 +234,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textSPCC4"
+                android:id="@+id/textAP24"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
@@ -248,7 +253,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textDWM"
+                android:id="@+id/AC2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="2dp"
@@ -256,14 +261,14 @@
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="1dp"
                 android:background="#ffffff"
+                android:fontFamily="@font/acme"
                 android:padding="10dp"
-                android:text="DWM"
+                android:text="AC-2"
                 android:textColor="#000000"
-                android:textSize="20sp"
-                app:fontFamily="@font/acme" />
+                android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/textDWM1"
+                android:id="@+id/textAC21"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
@@ -276,7 +281,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textDWM2"
+                android:id="@+id/textAC22"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
@@ -289,7 +294,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textDWM3"
+                android:id="@+id/textAC23"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
@@ -302,7 +307,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textDWM4"
+                android:id="@+id/textAC24"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
@@ -321,7 +326,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textCSS"
+                android:id="@+id/ED"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="2dp"
@@ -329,14 +334,14 @@
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="1dp"
                 android:background="#ffffff"
+                android:fontFamily="@font/acme"
                 android:padding="10dp"
-                android:text="CSS"
+                android:text="ED"
                 android:textColor="#000000"
-                android:textSize="20sp"
-                app:fontFamily="@font/acme" />
+                android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/textCSS1"
+                android:id="@+id/textED1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
@@ -349,7 +354,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textCSS2"
+                android:id="@+id/textED2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
@@ -362,7 +367,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textCSS3"
+                android:id="@+id/textED3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
@@ -375,7 +380,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textCSS4"
+                android:id="@+id/textED4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
@@ -394,7 +399,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textDLOC2"
+                android:id="@+id/SPA"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="2dp"
@@ -402,14 +407,14 @@
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="1dp"
                 android:background="#ffffff"
+                android:fontFamily="@font/acme"
                 android:padding="10dp"
-                android:text="DLOC-2"
+                android:text="SPA"
                 android:textColor="#000000"
-                android:textSize="20sp"
-                app:fontFamily="@font/acme" />
+                android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/textDLOC21"
+                android:id="@+id/textSPA1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
@@ -422,7 +427,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textDLOC22"
+                android:id="@+id/textSPA2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
@@ -435,7 +440,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textDLOC23"
+                android:id="@+id/textSPA3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
@@ -448,7 +453,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textDLOC24"
+                android:id="@+id/textSPA4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
@@ -467,67 +472,67 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textMiProj"
+                android:id="@+id/CS"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="2dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginRight="1dp"
-                android:layout_marginBottom="2dp"
+                android:layout_marginBottom="1dp"
                 android:background="#ffffff"
+                android:fontFamily="@font/acme"
                 android:padding="10dp"
-                android:text="Mini Project"
+                android:text="CS"
                 android:textColor="#000000"
-                android:textSize="20sp"
-                app:fontFamily="@font/acme" />
+                android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/textMiProj1"
+                android:id="@+id/textCS1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginRight="1dp"
-                android:layout_marginBottom="2dp"
+                android:layout_marginBottom="1dp"
                 android:background="#ffffff"
                 android:padding="10dp"
                 android:textColor="#000000"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textMiProj2"
+                android:id="@+id/textCS2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginRight="1dp"
-                android:layout_marginBottom="2dp"
+                android:layout_marginBottom="1dp"
                 android:background="#ffffff"
                 android:padding="10dp"
                 android:textColor="#000000"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textMiProj3"
+                android:id="@+id/textCS3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginRight="1dp"
-                android:layout_marginBottom="2dp"
+                android:layout_marginBottom="1dp"
                 android:background="#ffffff"
                 android:padding="10dp"
                 android:textColor="#000000"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textMiProj4"
+                android:id="@+id/textCS4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginRight="2dp"
-                android:layout_marginBottom="2dp"
+                android:layout_marginBottom="1dp"
                 android:background="#ffffff"
                 android:padding="10dp"
                 android:textColor="#000000"
@@ -536,5 +541,6 @@
         </TableRow>
 
     </TableLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

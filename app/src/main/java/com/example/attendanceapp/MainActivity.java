@@ -97,8 +97,7 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
-                                String details=(fAuth.getCurrentUser()).toString();
-                                Toast.makeText(MainActivity.this, details, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, "User logged in", Toast.LENGTH_SHORT).show();
                                 Intent goToAllTabs = new Intent(MainActivity.this, Tabs.class);
                                 startActivity(goToAllTabs);
                             }

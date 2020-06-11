@@ -52,10 +52,14 @@ public class Semesters extends AppCompatActivity implements NavigationView.OnNav
                 public void onClick(View view){
                     switch(view.getId())
                     {
-                        case R.id.cardSem1: break;
-                        case R.id.cardSem2: break;
-                        case R.id.cardSem3: break;
-                        case R.id.cardSem4: break;
+                        case R.id.cardSem1: startActivity(new Intent(Semesters.this, Sem1.class));
+                                            break;
+                        case R.id.cardSem2: startActivity(new Intent(Semesters.this, Sem2.class));
+                                            break;
+                        case R.id.cardSem3: startActivity(new Intent(Semesters.this, Sem3.class));
+                            break;
+                        case R.id.cardSem4: startActivity(new Intent(Semesters.this, Sem4.class));
+                            break;
                         case R.id.cardSem5: startActivity(new Intent(Semesters.this, Sem5.class));
                             break;
                         case R.id.cardSem6: startActivity(new Intent(Semesters.this, Sem6.class));
@@ -69,28 +73,6 @@ public class Semesters extends AppCompatActivity implements NavigationView.OnNav
                 }
             });
         }
-
-        /*gridLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switch(v.getId())
-                {
-                    case R.id.cardSem1: break;
-                    case R.id.cardSem2: break;
-                    case R.id.cardSem3: break;
-                    case R.id.cardSem4: break;
-                    case R.id.cardSem5: startActivity(new Intent(Semesters.this, Sem5.class));
-                                        break;
-                    case R.id.cardSem6: startActivity(new Intent(Semesters.this, Sem6.class));
-                                        break;
-                    case R.id.cardSem7: startActivity(new Intent(Semesters.this, Sem7.class));
-                                        break;
-                    case R.id.cardSem8: startActivity(new Intent(Semesters.this, Sem8.class));
-                                        break;
-                    default: break;
-                }
-            }
-        });*/
     }
 
 
