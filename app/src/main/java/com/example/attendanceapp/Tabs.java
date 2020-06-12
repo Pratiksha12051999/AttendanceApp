@@ -29,7 +29,7 @@ public class Tabs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent goToAnnouncement;
-                goToAnnouncement = new Intent(Tabs.this, Announcement.class);
+                goToAnnouncement = new Intent(Tabs.this, Announcements.class);
                 startActivity(goToAnnouncement);
             }
         });

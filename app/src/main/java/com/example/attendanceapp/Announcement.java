@@ -22,8 +22,8 @@ public class Announcement extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_announcements);
-        ListView mList = (ListView) findViewById(R.id.announce);
+        setContentView(R.layout.activity_announcement);
+        ListView mList = (ListView) findViewById(R.id.Subject);
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,mAnnounce);
         mList.setAdapter(arrayAdapter);
 
