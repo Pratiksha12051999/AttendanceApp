@@ -25,12 +25,16 @@
                 app:srcCompat="@drawable/vesitlogo" />
         </LinearLayout>
         <TextView
-            android:layout_marginTop="50dp"
+            android:id='@+id/Ann'
+            android:layout_marginTop="10dp"
             android:textSize="24sp"
             android:textColor="#020024"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Announcements"/>
+
+
+
         <View
             android:id="@+id/divider"
             android:layout_width="match_parent"
@@ -38,6 +42,18 @@
             android:background="?android:attr/listDivider" />
 
     </LinearLayout>
+    <Button
+        android:id="@+id/AddAnn"
+        android:layout_width="252dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="57dp"
+        android:layout_marginLeft="150dp"
+        android:background="@drawable/button_border"
+        android:padding="8dp"
+        android:text="Add"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        />
     <View
         android:id="@+id/view"
         android:layout_width="wrap_content"
