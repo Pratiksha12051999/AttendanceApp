@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.GridView;
 
 public class Tabs extends AppCompatActivity {
-    Button announcementButton;
+    Button announcementButton, examButton;
     public void showAttributions(View view){
         Intent attris=new Intent(this, Attributions.class);
         startActivity(attris);
@@ -31,6 +31,16 @@ public class Tabs extends AppCompatActivity {
                 Intent goToAnnouncement;
                 goToAnnouncement = new Intent(Tabs.this, Announcements.class);
                 startActivity(goToAnnouncement);
+            }
+        });
+
+        examButton = findViewById(R.id.cell6_);;
+        examButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToExam;
+                goToExam = new Intent(Tabs.this, Exam.class);
+                startActivity(goToExam);
             }
         });
     }

@@ -233,6 +233,7 @@
             app:layout_rowWeight="1">
 
             <Button
+                android:id="@+id/cell6_"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -247,7 +248,7 @@
 
             <TextView
                 android:gravity="center"
-                android:text="Fee Details"
+                android:text="Exam form"
                 android:textColor="#ffffff"
                 android:textSize="15sp"
                 android:textStyle="bold"
