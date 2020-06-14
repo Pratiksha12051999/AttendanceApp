@@ -16,6 +16,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
+import static com.example.attendanceapp.R.id.Subject;
+
 public class Announcement extends AppCompatActivity {
     DatabaseReference announcements = FirebaseDatabase.getInstance().getReference("Announcements");
     private ArrayList<String> mAnnounce = new ArrayList<>();
@@ -23,7 +25,7 @@ public class Announcement extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_announcement);
-        ListView mList = (ListView) findViewById(R.id.Subject);
+        ListView mList = (ListView) findViewById(Subject);
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,mAnnounce);
         mList.setAdapter(arrayAdapter);
 

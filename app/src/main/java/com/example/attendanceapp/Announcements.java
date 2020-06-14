@@ -33,7 +33,7 @@ public class Announcements extends AppCompatActivity {
         mAnList.setHasFixedSize(true);
         mAnList.setLayoutManager(new LinearLayoutManager(this));
 
-        addButton = findViewById(R.id.AddAnn);
+        addButton = findViewById(R.id.AddAnnouncement);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
