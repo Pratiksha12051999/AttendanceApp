@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,6 +21,7 @@ public class Tabs extends AppCompatActivity implements NavigationView.OnNavigati
 
     private DrawerLayout drawer;
     FirebaseAuth mAuth;
+    Button studentAttendance;
 
     public void showAttributions(View view) {
         Intent attris = new Intent(this, Attributions.class);
@@ -33,7 +35,7 @@ public class Tabs extends AppCompatActivity implements NavigationView.OnNavigati
         GridLayout mainGrid = (GridLayout) findViewById(R.id.mainGrid);
         mainGrid.setTranslationY(10000);
         mainGrid.animate().translationYBy(-10000).setDuration(1000);
-
+        studentAttendance = findViewById(R.id.studentAttendance);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -47,6 +49,14 @@ public class Tabs extends AppCompatActivity implements NavigationView.OnNavigati
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        studentAttendance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent attendance = new Intent(Tabs.this, StudentAttendance.class);
+                startActivity(attendance);
+            }
+        });
 
     }
 

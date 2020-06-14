@@ -1,46 +1,58 @@
 package com.example.attendanceapp;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
-public class TeacherAttendance extends AppCompatActivity {
+public class TeacherAttendance extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private Spinner spinMonth;
-    EditText yearTextBox;
-    EditText divisionTextBox;
-    EditText subjectTextBox;
-    EditText startRowTextBox;
-    EditText endRowTextBox;
-    EditText rollNumberColumn;
-    EditText nameColumn;
-    EditText attendanceColumn;
-    Button uploadButton;
     String selectedMonth = null;
+    Button uploadButton;
+    EditText divisionTextBox;
+    EditText startDateTextBox;
+    EditText endDateTextBox;
+    EditText numberOfStudentsTextBox;
+    EditText yearTextBox;
+    private DrawerLayout drawer;
+    FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_attendance);
         spinMonth = findViewById(R.id.spinDate);
-        yearTextBox = findViewById(R.id.Year);
+        uploadButton = findViewById(R.id.uplodButton);
         divisionTextBox = findViewById(R.id.Division);
-        subjectTextBox = findViewById(R.id.Subject);
-        startRowTextBox = findViewById(R.id.startRow);
-        endRowTextBox = findViewById(R.id.endRow);
-        rollNumberColumn = findViewById(R.id.rollNo);
-        nameColumn = findViewById(R.id.name);
-        attendanceColumn = findViewById(R.id.attendance);
-        uploadButton = findViewById(R.id.uploadButton);
+        startDateTextBox = findViewById(R.id.startDate);
+        endDateTextBox = findViewById(R.id.endDate);
+        numberOfStudentsTextBox = findViewById(R.id.numberOfStudentsTextBox);
+        yearTextBox = findViewById(R.id.yearTextBox);
+        yearTextBox.setEnabled(false);
+
+        Calendar calendar = Calendar.getInstance();
+        final int year = calendar.get(Calendar.YEAR);
 
         List<String> Month = new ArrayList<>();
         Month.add("January");
@@ -71,61 +83,80 @@ public class TeacherAttendance extends AppCompatActivity {
         uploadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String yearText = yearTextBox.getText().toString().trim();
                 String divisionText = divisionTextBox.getText().toString().trim();
-                String subjectText = subjectTextBox.getText().toString().trim();
-                String startRowText = startRowTextBox.getText().toString().trim();
-                String endRowText = endRowTextBox.getText().toString().trim();
-                String rollNumberText = rollNumberColumn.getText().toString().trim();
-                String nameText = nameColumn.getText().toString().trim();
-                String attendanceText = attendanceColumn.getText().toString().trim();
-                if(yearText.isEmpty()){
-                    yearTextBox.setError("Please enter the year");
-                    yearTextBox.requestFocus();
-                }
-                else if(divisionText.isEmpty()){
+                String startDateText = startDateTextBox.getText().toString().trim();
+                String endDateText = endDateTextBox.getText().toString().trim();
+                String numberOfStudents = numberOfStudentsTextBox.getText().toString().trim();
+                if(divisionText.isEmpty()){
                     divisionTextBox.setError("Please enter the division");
                     divisionTextBox.requestFocus();
                 }
-                else if((subjectText).isEmpty()){
-                    subjectTextBox.setError("Please enter the subject");
-                    subjectTextBox.requestFocus();
+                else if((startDateText).isEmpty()){
+                    startDateTextBox.setError("Please enter the Start Date");
+                    startDateTextBox.requestFocus();
                 }
-                else if(startRowText.isEmpty()){
-                    startRowTextBox.setError("Please enter the start row");
-                    startRowTextBox.requestFocus();
+                else if(endDateText.isEmpty()){
+                    endDateTextBox.setError("Please enter the End Date");
+                    endDateTextBox.requestFocus();
                 }
-                else if(endRowText.isEmpty()){
-                    endRowTextBox.setError("Please enter the end row");
-                    endRowTextBox.requestFocus();
+                else if(selectedMonth == null){
+                    Toast.makeText(TeacherAttendance.this, "Kindly select a month", Toast.LENGTH_SHORT).show();
                 }
-                else if(rollNumberText.isEmpty()){
-                    rollNumberColumn.setError("Please enter the roll number column");
-                    rollNumberColumn.requestFocus();
-                }
-                else if(nameText.isEmpty()){
-                    nameColumn.setError("Please enter the name column number");
-                    nameColumn.requestFocus();
-                }
-                else if(attendanceText.isEmpty()){
-                    attendanceColumn.setError("Please enter attendance column number");
-                    attendanceColumn.requestFocus();
-                }
-                else{
+                else if(numberOfStudents.isEmpty())
+                {
+                    numberOfStudentsTextBox.setError("Please enter the Number of Students");
+                    numberOfStudentsTextBox.requestFocus();
+                }else{
                     Intent goToUploadAttendance = new Intent(TeacherAttendance.this, UploadAttendance.class);
-                    goToUploadAttendance.putExtra("Start_Row_Number", startRowText);
-                    goToUploadAttendance.putExtra("End_Row_Number", endRowText);
-                    goToUploadAttendance.putExtra("Roll_Number_Column", rollNumberText);
-                    goToUploadAttendance.putExtra("Name_Column", nameText);
-                    goToUploadAttendance.putExtra("Attendance_Column", attendanceText);
-                    goToUploadAttendance.putExtra("Attendance_Division", divisionText);
-                    goToUploadAttendance.putExtra("Attendance_Subject", subjectText);
-                    goToUploadAttendance.putExtra("Attendance_Year", yearText);
-                    goToUploadAttendance.putExtra("Attendance_Month", selectedMonth);
+                    goToUploadAttendance.putExtra("startDateText", startDateText);
+                    goToUploadAttendance.putExtra("endDateText", endDateText);
+                    goToUploadAttendance.putExtra("divisionText", divisionText);
+                    goToUploadAttendance.putExtra("selectedMonth", selectedMonth);
+                    goToUploadAttendance.putExtra("numberOfStudents", numberOfStudents);
                     startActivity(goToUploadAttendance);
                 }
             }
         });
 
+        /*Side dock part*/
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        drawer = findViewById(R.id.drawer_layout);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        }
+        super.onBackPressed();
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        mAuth = FirebaseAuth.getInstance();
+        switch (item.getItemId()) {
+            case R.id.nav_announcement:
+                break;
+            case R.id.nav_share:
+                break;
+            case R.id.nav_contact:
+                break;
+            case R.id.nav_logout:
+                FirebaseAuth.getInstance().signOut();
+                Intent goBackToLogin = new Intent(TeacherAttendance.this, MainActivity.class);
+                startActivity(goBackToLogin);
+        }
+        return true;
     }
 }

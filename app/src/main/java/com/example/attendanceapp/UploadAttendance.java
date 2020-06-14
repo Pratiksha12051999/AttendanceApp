@@ -10,6 +10,7 @@ import android.Manifest;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -46,6 +47,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
 
 public class UploadAttendance extends AppCompatActivity {
 
@@ -62,18 +65,25 @@ public class UploadAttendance extends AppCompatActivity {
     ArrayList<XYValue> uploadData;
     ListView lvInternalStorage;
     ProgressBar progressBar;
-    long startRowText;
-    long endRowText;
-    int rollNumberText;
-    int nameText;
-    int attendanceText;
+
+    String startDateText;
+    String endDateText;
     String divisionText;
-    String subjectText;
-    String yearText;
     String selectedMonth;
+    String numberOfStudents;
+    String[] subjects;
+    int  yearText;
+    int c,r;
+    int r1,c1;
+    int r2,c2;
+    String value = "";
+    String value1 = "";
+    String value2 = "";
+
     FirebaseAuth mAuth;
     FirebaseDatabase mFirebaseDatabase;
     DatabaseReference myRef;
+    DatabaseReference students;
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +97,7 @@ public class UploadAttendance extends AppCompatActivity {
         btnSDCard = findViewById(R.id.btnViewSDCard);
         uploadData = new ArrayList<XYValue>();
         progressBar = findViewById(R.id.progressBar);
+
         //need to check the permissions
         checkFilePermissions();
         lvInternalStorage.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -134,15 +145,11 @@ public class UploadAttendance extends AppCompatActivity {
                 checkInternalStorage();
             }
         });
-        startRowText = Integer.parseInt(getIntent().getStringExtra("Start_Row_Number"));
-        endRowText = Integer.parseInt(getIntent().getStringExtra("End_Row_Number"));
-        rollNumberText = Integer.parseInt(getIntent().getStringExtra("Roll_Number_Column"));
-        nameText = Integer.parseInt(getIntent().getStringExtra("Name_Column"));
-        attendanceText = Integer.parseInt(getIntent().getStringExtra("Attendance_Column"));
-        divisionText = getIntent().getStringExtra("Attendance_Division").toUpperCase();
-        subjectText = getIntent().getStringExtra("Attendance_Subject").toUpperCase();
-        yearText = getIntent().getStringExtra("Attendance_Year");
-        selectedMonth = getIntent().getStringExtra("Attendance_Month");
+        startDateText = getIntent().getStringExtra("startDateText");
+        endDateText = getIntent().getStringExtra("endDateText");
+        divisionText = getIntent().getStringExtra("divisionText").toUpperCase();
+        selectedMonth = getIntent().getStringExtra("selectedMonth");
+        numberOfStudents = getIntent().getStringExtra("numberOfStudents");
     }
     private void readExcelData(String filePath) {
         Log.d(TAG, "readExcelData: Reading Excel File.");
@@ -151,29 +158,104 @@ public class UploadAttendance extends AppCompatActivity {
             InputStream inputStream = new FileInputStream(inputFile);
             XSSFWorkbook workbook = new XSSFWorkbook(inputStream);
             XSSFSheet sheet = workbook.getSheetAt(0);
-            int rowsCount = (int) (endRowText - startRowText);
+            int rowsCount = sheet.getPhysicalNumberOfRows();
             FormulaEvaluator formulaEvaluator = workbook.getCreationHelper().createFormulaEvaluator();
             StringBuilder sb = new StringBuilder();
-            int rollNumberTextInteger = Integer.parseInt(String.valueOf(rollNumberText));
-            int nameTextInteger = Integer.parseInt(String.valueOf(nameText));
-            int attendanceTextInteger = Integer.parseInt(String.valueOf(attendanceText));
+            StringBuilder sb1 = new StringBuilder();
+            StringBuilder sb2 = new StringBuilder();
+
             //outer loop, loops through rows
-            for (int r = Integer.parseInt(String.valueOf(startRowText))-1; r <= Integer.parseInt(String.valueOf(endRowText))-1; r++) {
+            outerloop:
+            for (r = 0; r < 50; r++) {
                 Row row = sheet.getRow(r);
                 int cellsCount = row.getPhysicalNumberOfCells();
                 //inner loop, loops through columns
-                for (int c = 0; c <= attendanceTextInteger; c++) {
-                    if (c == (rollNumberTextInteger - 1) || c == (nameTextInteger - 1) || c == (attendanceTextInteger - 1)) {
+                for (c = 0; c < cellsCount; c++) {
+                    //handles if there are to many columns on the excel sheet.
+                    if (c > 2) {
+                        Log.e(TAG, "readExcelData: ERROR. Excel File Format is incorrect! ");
+                        toastMessage("ERROR: Excel File Format is incorrect!");
+                        break;
+                    } else {
                         String value = getCellAsString(row, c, formulaEvaluator);
                         String cellInfo = "r:" + r + "; c:" + c + "; v:" + value;
                         Log.d(TAG, "readExcelData: Data from row: " + cellInfo);
                         sb.append(value + ", ");
+                        if (value.equals("Roll \n" +
+                                "No.")) {
+                            break outerloop;
+                        }
                     }
                 }
                 sb.append(":");
             }
+            Log.d(TAG, "Row No." + r);
+            Log.d(TAG, "Column No." + c);
             Log.d(TAG, "readExcelData: STRINGBUILDER: " + sb.toString());
-            parseStringBuilder(sb);
+
+            outerloop1:
+            for (r1 = r; r1 < r+1; r1++) {
+                Row row1 = sheet.getRow(r1);
+                int cellsCount1 = row1.getPhysicalNumberOfCells();
+                //inner loop, loops through columns
+                for (c1 = 0; c1 < cellsCount1; c1++) {
+                    String value1 = getCellAsString(row1, c1, formulaEvaluator);
+                    String cellInfo1 = "r:" + r1 + "; c:" + c1 + "; v:" + value1;
+                    Log.d(TAG, "readExcelData: Data from row: " + cellInfo1);
+                    sb1.append(value + ", ");
+                    if (value1.equals("TOTAL")) {
+                        break outerloop1;
+                    }
+                }
+                sb1.append(":");
+            }
+            //  parseStringBuilder(sb);
+
+            Log.d(TAG, "Row No." + r1);
+            Log.d(TAG, "Column No." + c1);
+            Log.d(TAG, "readExcelData: STRINGBUILDER: " + sb1.toString());
+            int size = (c1+5)/3;
+            int[] myArray = new int [size+1];
+            myArray[0] = 0;
+            myArray[1]=1;
+            int columnNo = c+4;
+            for(int k=2; k <= size; k++){
+                myArray[k] = columnNo;
+                columnNo = columnNo +3;
+            }
+
+            int subjectSize = (c1)/3 + 1;
+            subjects = new String [subjectSize];
+            int subjectNo = 0;
+            for (int rowSubject = r; rowSubject < r+1; rowSubject++){
+                Row subjectRow = sheet.getRow(rowSubject);
+                for(int columnSubject = c+2 ; columnSubject <= c1 ; columnSubject = columnSubject + 3 )
+                {
+                    String valueSubject = getCellAsString(subjectRow, columnSubject, formulaEvaluator);
+                    subjects[subjectNo] = valueSubject;
+                    subjectNo = subjectNo + 1;
+                    String cellInfoSubject = "r:" + rowSubject + "; c:" + columnSubject + "; v:" + valueSubject;
+                    Log.d(TAG, "readExcelData: Data from row: " + cellInfoSubject);
+                }
+            }
+
+            //Log.d("this is my array", "arr: " + Arrays.toString(subjects));
+
+            outerloop2:
+            for (r2 = r+3; r2 <= Integer.parseInt(numberOfStudents) + r + 2; r2++) {
+                Row row2 = sheet.getRow(r2);
+                int cellsCount2 = row2.getPhysicalNumberOfCells();
+                //inner loop, loops through columns
+                for (c2 = 0; c2 < size+1 ; c2++) {
+                    String value2 = getCellAsString(row2, myArray[c2], formulaEvaluator);
+                    String cellInfo2 = "r:" + r2 + "; c:" + myArray[c2] + "; v:" + value2;
+                    Log.d(TAG, "readExcelData: Data from row: " + cellInfo2);
+                    sb2.append(value2 + ", ");
+                }
+                sb2.append(":");
+            }
+            Log.d(TAG, "readExcelData: STRINGBUILDER: " + sb2.toString());
+            parseStringBuilder(sb2);
         }
         catch (IOException e) {
             Log.e(TAG, "readExcelData: Error reading inputstream. " + e.getMessage() );
@@ -188,28 +270,45 @@ public class UploadAttendance extends AppCompatActivity {
         // splits the sb into rows.
         String[] rows = mStringBuilder.toString().split(":");
         //Add to the ArrayList<XYValue> row by row
+
         for(int i = 0; i <rows.length; i++) {
             //Split the columns of the rows
             String[] columns = rows[i].split(",");
             //use try catch to make sure there are no "" that try to parse into doubles.
             try{
                 progressBar.setVisibility(View.VISIBLE);
-                int rollNumberTextInteger = Integer.parseInt(String.valueOf(rollNumberText));
-                int nameTextInteger = Integer.parseInt(String.valueOf(nameText));
-                int attendanceTextInteger = Integer.parseInt(String.valueOf(attendanceText));
-                Log.i("RollNumber", String.valueOf(rollNumberTextInteger));
-                Log.i("NameText", String.valueOf(nameTextInteger));
-                Log.i("AttendanceText", String.valueOf(attendanceTextInteger));
+
                 String x = String.valueOf(columns[0]).split("\\.")[0];
-                String y = columns[1];
+                String y = columns[1].replaceAll("\\[", "").replaceAll("\\]","");
                 String z = String.valueOf(columns[2]).split("\\.")[0];
-                String cellInfo = "(x,y,z): (" + x + "," + y + "," + z + ")";
-                Log.d(TAG, "ParseStringBuilder: Data from row: " + cellInfo);
+                String a = String.valueOf(columns[3]).split("\\.")[0];
+                String b = String.valueOf(columns[4]).split("\\.")[0];
+                String c = String.valueOf(columns[5]).split("\\.")[0];
+                String d = String.valueOf(columns[6]).split("\\.")[0];
+                String e = String.valueOf(columns[7]).split("\\.")[0];
+                String f = String.valueOf(columns[8]).split("\\.")[0];
+
+                String cellInfo2 = "(x,y,z): (" + x + "," + y + "," + z + "," + a + "," + b + "," + c + "," + d + "," + e + "," + f + ")";
+                Log.d(TAG, "ParseStringBuilder: Data from row: " + cellInfo2);
                 FirebaseUser user = mAuth.getCurrentUser();
                 String emailID = user.getEmail();
-                myRef.child(yearText).child(selectedMonth).child(divisionText).child(subjectText).child(x).child("Name").setValue(y);
-                myRef.child(yearText).child(selectedMonth).child(divisionText).child(subjectText).child(x).child("TeacherEmail").setValue(emailID);
-                myRef.child(yearText).child(selectedMonth).child(divisionText).child(subjectText).child(x).child("Attendance").setValue(z);
+                Calendar calendar = Calendar.getInstance();
+                yearText = calendar.get(Calendar.YEAR);
+                students = FirebaseDatabase.getInstance().getReference("Attendance");
+                String id = students.push().getKey();
+                Log.d("this is my array", "arr: " + Arrays.toString(subjects));
+                students.child(id).child("Year").setValue("2020");
+                students.child(id).child("Month").setValue(selectedMonth);
+                students.child(id).child("Division").setValue(divisionText);
+                students.child(id).child("Roll_No").setValue(x);
+                students.child(id).child("Name").setValue(y);
+                students.child(id).child("Subjects").child(subjects[0]).setValue(z);
+                students.child(id).child("Subjects").child(subjects[1]).setValue(a);
+                students.child(id).child("Subjects").child(subjects[2]).setValue(b);
+                students.child(id).child("Subjects").child(subjects[3]).setValue(c);
+                students.child(id).child("Subjects").child(subjects[4]).setValue(d);
+                students.child(id).child("Subjects").child(subjects[5]).setValue(e);
+                students.child(id).child("Total_Attendance").setValue(f);
             }catch (NumberFormatException e){
                 Log.e(TAG, "parseStringBuilder: NumberFormatException: " + e.getMessage());
             }
