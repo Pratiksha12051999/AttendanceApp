@@ -20,6 +20,8 @@
         <activity android:name=".Announcements"/>
         <activity android:name=".AddAnnouncement"/>
         <activity android:name=".Exam"/>
+        <activity android:name=".Assignment"/>
+        <activity android:name=".ShowAssignment"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
