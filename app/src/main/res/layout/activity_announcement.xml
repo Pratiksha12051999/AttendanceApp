@@ -4,19 +4,12 @@
 
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
     android:orientation="vertical">
-
-
-
-
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_marginRight="0dp"
         app:cardCornerRadius="2dp"
         android:orientation="vertical"
-
         android:layout_marginLeft="0dp"
         android:layout_height="wrap_content">
 

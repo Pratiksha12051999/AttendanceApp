@@ -62,7 +62,7 @@
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Link"
+                    android:text="Link: "
                     android:textColor="#020024"
                     android:textSize="24dp" />
 
@@ -90,7 +90,7 @@
                     android:layout_height="wrap_content"
                     android:text="DOP:"
                     android:textColor="#020024"
-                    android:textSize="24dp" />
+                    android:textSize="20dp" />
 
                 <TextView
                     android:id="@+id/Startdate"
@@ -115,7 +115,7 @@
                     android:layout_height="wrap_content"
                     android:text="DOS"
                     android:textColor="#020024"
-                    android:textSize="24dp" />
+                    android:textSize="20dp" />
 
                 <TextView
                     android:id="@+id/Enddate"
