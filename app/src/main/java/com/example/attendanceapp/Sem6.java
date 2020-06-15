@@ -40,55 +40,59 @@ public class Sem6 extends AppCompatActivity {
                             if (dataSnapshot.exists()) {
                                 for (DataSnapshot issue : dataSnapshot.getChildren()) {
                                     Map<String, Object> values=(Map<String, Object>)issue.getValue();
+
+                                    TextView studentname=(TextView)findViewById(R.id.textStudentName);
+                                    studentname.setText(values.get("Name").toString());
+
                                     TextView SE1=(TextView)findViewById(R.id.textSE1);
                                     TextView SE2=(TextView)findViewById(R.id.textSE2);
                                     TextView SE3=(TextView)findViewById(R.id.textSE3);
                                     TextView SE4=(TextView)findViewById(R.id.textSE4);
 
-                                    SE1.setText(values.get("SE IA").toString());
-                                    SE2.setText(values.get("SE IA").toString());
-                                    SE3.setText(values.get("SE IA").toString());
-                                    SE4.setText(values.get("SE SE").toString());
+                                    SE1.setText(values.get("SE IA").toString()+"/20");
+                                    SE2.setText(values.get("SE IA").toString()+"/20");
+                                    SE3.setText(values.get("SE IA").toString()+"/20");
+                                    SE4.setText(values.get("SE SE").toString()+"/80");
 
                                     TextView SPCC1=(TextView)findViewById(R.id.textSPCC1);
                                     TextView SPCC2=(TextView)findViewById(R.id.textSPCC2);
                                     TextView SPCC3=(TextView)findViewById(R.id.textSPCC3);
                                     TextView SPCC4=(TextView)findViewById(R.id.textSPCC4);
 
-                                    SPCC1.setText(values.get("SPCC IA").toString());
-                                    SPCC2.setText(values.get("SPCC IA").toString());
-                                    SPCC3.setText(values.get("SPCC IA").toString());
-                                    SPCC4.setText(values.get("SPCC SE").toString());
+                                    SPCC1.setText(values.get("SPCC IA").toString()+"/20");
+                                    SPCC2.setText(values.get("SPCC IA").toString()+"/20");
+                                    SPCC3.setText(values.get("SPCC IA").toString()+"/20");
+                                    SPCC4.setText(values.get("SPCC SE").toString()+"/80");
 
                                     TextView DWM1=(TextView)findViewById(R.id.textDWM1);
                                     TextView DWM2=(TextView)findViewById(R.id.textDWM2);
                                     TextView DWM3=(TextView)findViewById(R.id.textDWM3);
                                     TextView DWM4=(TextView)findViewById(R.id.textDWM4);
 
-                                    DWM1.setText(values.get("DWM IA").toString());
-                                    DWM2.setText(values.get("DWM IA").toString());
-                                    DWM3.setText(values.get("DWM IA").toString());
-                                    DWM4.setText(values.get("DWM SE").toString());
+                                    DWM1.setText(values.get("DWM IA").toString()+"/20");
+                                    DWM2.setText(values.get("DWM IA").toString()+"/20");
+                                    DWM3.setText(values.get("DWM IA").toString()+"/20");
+                                    DWM4.setText(values.get("DWM SE").toString()+"/80");
 
                                     TextView CSS1=(TextView)findViewById(R.id.textCSS1);
                                     TextView CSS2=(TextView)findViewById(R.id.textCSS2);
                                     TextView CSS3=(TextView)findViewById(R.id.textCSS3);
                                     TextView CSS4=(TextView)findViewById(R.id.textCSS4);
 
-                                    CSS1.setText(values.get("CSS IA").toString());
-                                    CSS2.setText(values.get("CSS IA").toString());
-                                    CSS3.setText(values.get("CSS IA").toString());
-                                    CSS4.setText(values.get("CSS SE").toString());
+                                    CSS1.setText(values.get("CSS IA").toString()+"/20");
+                                    CSS2.setText(values.get("CSS IA").toString()+"/20");
+                                    CSS3.setText(values.get("CSS IA").toString()+"/20");
+                                    CSS4.setText(values.get("CSS SE").toString()+"/80");
 
                                     TextView DLOC21=(TextView)findViewById(R.id.textDLOC21);
                                     TextView DLOC22=(TextView)findViewById(R.id.textDLOC22);
                                     TextView DLOC23=(TextView)findViewById(R.id.textDLOC23);
                                     TextView DLOC24=(TextView)findViewById(R.id.textDLOC24);
 
-                                    DLOC21.setText(values.get("DLOCII IA").toString());
-                                    DLOC22.setText(values.get("DLOCII IA").toString());
-                                    DLOC23.setText(values.get("DLOCII IA").toString());
-                                    DLOC24.setText(values.get("DLOCII SE").toString());
+                                    DLOC21.setText(values.get("DLOCII IA").toString()+"/20");
+                                    DLOC22.setText(values.get("DLOCII IA").toString()+"/20");
+                                    DLOC23.setText(values.get("DLOCII IA").toString()+"/20");
+                                    DLOC24.setText(values.get("DLOCII SE").toString()+"/80");
 
                                     TextView MiProj1=(TextView)findViewById(R.id.textMiProj1);
                                     TextView MiProj2=(TextView)findViewById(R.id.textMiProj2);
@@ -98,7 +102,7 @@ public class Sem6 extends AppCompatActivity {
                                     MiProj1.setText("-");
                                     MiProj2.setText("-");
                                     MiProj3.setText("-");
-                                    MiProj4.setText(values.get("MiniProject").toString());
+                                    MiProj4.setText(values.get("MiniProject").toString()+"/50");
                                 }
                             }
                         }

@@ -40,55 +40,59 @@ public class Sem3 extends AppCompatActivity {
                             if (dataSnapshot.exists()) {
                                 for (DataSnapshot issue : dataSnapshot.getChildren()) {
                                     Map<String, Object> values=(Map<String, Object>)issue.getValue();
+
+                                    TextView studentname=(TextView)findViewById(R.id.textStudentName);
+                                    studentname.setText(values.get("Name").toString());
+
                                     TextView AM31=(TextView)findViewById(R.id.textAM31);
                                     TextView AM32=(TextView)findViewById(R.id.textAM32);
                                     TextView AM33=(TextView)findViewById(R.id.textAM33);
                                     TextView AM34=(TextView)findViewById(R.id.textAM34);
 
-                                    AM31.setText(values.get("AMIII IA").toString());
-                                    AM32.setText(values.get("AMIII IA").toString());
-                                    AM33.setText(values.get("AMIII IA").toString());
-                                    AM34.setText(values.get("AMIII SE").toString());
+                                    AM31.setText(values.get("AMIII IA").toString()+"/20");
+                                    AM32.setText(values.get("AMIII IA").toString()+"/20");
+                                    AM33.setText(values.get("AMIII IA").toString()+"/20");
+                                    AM34.setText(values.get("AMIII SE").toString()+"/80");
 
                                     TextView DM1=(TextView)findViewById(R.id.textDM1);
                                     TextView DM2=(TextView)findViewById(R.id.textDM2);
                                     TextView DM3=(TextView)findViewById(R.id.textDM3);
                                     TextView DM4=(TextView)findViewById(R.id.textDM4);
 
-                                    DM1.setText(values.get("DM IA").toString());
-                                    DM2.setText(values.get("DM IA").toString());
-                                    DM3.setText(values.get("DM IA").toString());
-                                    DM4.setText(values.get("DM SE").toString());
+                                    DM1.setText(values.get("DM IA").toString()+"/20");
+                                    DM2.setText(values.get("DM IA").toString()+"/20");
+                                    DM3.setText(values.get("DM IA").toString()+"/20");
+                                    DM4.setText(values.get("DM SE").toString()+"/80");
 
                                     TextView DLDA1=(TextView)findViewById(R.id.textDLDA1);
                                     TextView DLDA2=(TextView)findViewById(R.id.textDLDA2);
                                     TextView DLDA3=(TextView)findViewById(R.id.textDLDA3);
                                     TextView DLDA4=(TextView)findViewById(R.id.textDLDA4);
 
-                                    DLDA1.setText(values.get("DLDA IA").toString());
-                                    DLDA2.setText(values.get("DLDA IA").toString());
-                                    DLDA3.setText(values.get("DLDA IA").toString());
-                                    DLDA4.setText(values.get("DLDA SE").toString());
+                                    DLDA1.setText(values.get("DLDA IA").toString()+"/20");
+                                    DLDA2.setText(values.get("DLDA IA").toString()+"/20");
+                                    DLDA3.setText(values.get("DLDA IA").toString()+"/20");
+                                    DLDA4.setText(values.get("DLDA SE").toString()+"/80");
 
                                     TextView ECCF1=(TextView)findViewById(R.id.textECCF1);
                                     TextView ECCF2=(TextView)findViewById(R.id.textECCF2);
                                     TextView ECCF3=(TextView)findViewById(R.id.textECCF3);
                                     TextView ECCF4=(TextView)findViewById(R.id.textECCF4);
 
-                                    ECCF1.setText(values.get("ECCF IA").toString());
-                                    ECCF2.setText(values.get("ECCF IA").toString());
-                                    ECCF3.setText(values.get("ECCF IA").toString());
-                                    ECCF4.setText(values.get("ECCF SE").toString());
+                                    ECCF1.setText(values.get("ECCF IA").toString()+"/20");
+                                    ECCF2.setText(values.get("ECCF IA").toString()+"/20");
+                                    ECCF3.setText(values.get("ECCF IA").toString()+"/20");
+                                    ECCF4.setText(values.get("ECCF SE").toString()+"/80");
 
                                     TextView DS1=(TextView)findViewById(R.id.textDS1);
                                     TextView DS2=(TextView)findViewById(R.id.textDS2);
                                     TextView DS3=(TextView)findViewById(R.id.textDS3);
                                     TextView DS4=(TextView)findViewById(R.id.textDS4);
 
-                                    DS1.setText(values.get("DS IA").toString());
-                                    DS2.setText(values.get("DS IA").toString());
-                                    DS3.setText(values.get("DS IA").toString());
-                                    DS4.setText(values.get("DS SE").toString());
+                                    DS1.setText(values.get("DS IA").toString()+"/20");
+                                    DS2.setText(values.get("DS IA").toString()+"/20");
+                                    DS3.setText(values.get("DS IA").toString()+"/20");
+                                    DS4.setText(values.get("DS SE").toString()+"/80");
 
                                 }
                             }

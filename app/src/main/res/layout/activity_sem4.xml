@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Sem4"
-    android:background="@drawable/gradient_background">
+    android:background="@drawable/gradient_background"
+    tools:context=".Sem4">
 
     <TableLayout
         android:id="@+id/tableLayout"
@@ -30,6 +30,7 @@
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="1dp"
                 android:background="#ffffff"
+                android:fontFamily="@font/acme"
                 android:padding="10dp"
                 android:text="Subject"
                 android:textColor="#000000"
@@ -44,6 +45,7 @@
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="1dp"
                 android:background="#ffffff"
+                android:fontFamily="@font/acme"
                 android:padding="10dp"
                 android:text="IA-1"
                 android:textColor="#000000"
@@ -72,6 +74,7 @@
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="1dp"
                 android:background="#ffffff"
+                android:fontFamily="@font/acme"
                 android:padding="10dp"
                 android:text="Avg "
                 android:textColor="#000000"
@@ -86,6 +89,7 @@
                 android:layout_marginRight="2dp"
                 android:layout_marginBottom="1dp"
                 android:background="#ffffff"
+                android:fontFamily="@font/acme"
                 android:padding="10dp"
                 android:text="Sem"
                 android:textColor="#000000"
@@ -105,6 +109,7 @@
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="1dp"
                 android:background="#ffffff"
+                android:fontFamily="@font/acme"
                 android:padding="10dp"
                 android:text="AM-4"
                 android:textColor="#000000"
@@ -177,6 +182,7 @@
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="1dp"
                 android:background="#ffffff"
+                android:fontFamily="@font/acme"
                 android:padding="10dp"
                 android:text="AOA"
                 android:textColor="#000000"
@@ -249,6 +255,7 @@
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="1dp"
                 android:background="#ffffff"
+                android:fontFamily="@font/acme"
                 android:padding="10dp"
                 android:text="COA"
                 android:textColor="#000000"
@@ -321,6 +328,7 @@
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="1dp"
                 android:background="#ffffff"
+                android:fontFamily="@font/acme"
                 android:padding="10dp"
                 android:text="CG"
                 android:textColor="#000000"
@@ -393,6 +401,7 @@
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="1dp"
                 android:background="#ffffff"
+                android:fontFamily="@font/acme"
                 android:padding="10dp"
                 android:text="OS"
                 android:textColor="#000000"
@@ -453,5 +462,17 @@
         </TableRow>
 
     </TableLayout>
+
+    <TextView
+        android:id="@+id/textStudentName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/acme"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

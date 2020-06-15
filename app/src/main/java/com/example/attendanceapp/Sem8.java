@@ -40,45 +40,49 @@ public class Sem8 extends AppCompatActivity {
                             if (dataSnapshot.exists()) {
                                 for (DataSnapshot issue : dataSnapshot.getChildren()) {
                                     Map<String, Object> values=(Map<String, Object>)issue.getValue();
+
+                                    TextView studentname=(TextView)findViewById(R.id.textStudentName);
+                                    studentname.setText(values.get("Name").toString());
+
                                     TextView HMI1=(TextView)findViewById(R.id.textHMI1);
                                     TextView HMI2=(TextView)findViewById(R.id.textHMI2);
                                     TextView HMI3=(TextView)findViewById(R.id.textHMI3);
                                     TextView HMI4=(TextView)findViewById(R.id.textHMI4);
 
-                                    HMI1.setText(values.get("HMI IA").toString());
-                                    HMI2.setText(values.get("HMI IA").toString());
-                                    HMI3.setText(values.get("HMI IA").toString());
-                                    HMI4.setText(values.get("HMI SE").toString());
+                                    HMI1.setText(values.get("HMI IA").toString()+"/20");
+                                    HMI2.setText(values.get("HMI IA").toString()+"/20");
+                                    HMI3.setText(values.get("HMI IA").toString()+"/20");
+                                    HMI4.setText(values.get("HMI SE").toString()+"/80");
 
                                     TextView DC1=(TextView)findViewById(R.id.textDC1);
                                     TextView DC2=(TextView)findViewById(R.id.textDC2);
                                     TextView DC3=(TextView)findViewById(R.id.textDC3);
                                     TextView DC4=(TextView)findViewById(R.id.textDC4);
 
-                                    DC1.setText(values.get("DC IA").toString());
-                                    DC2.setText(values.get("DC IA").toString());
-                                    DC3.setText(values.get("DC IA").toString());
-                                    DC4.setText(values.get("DC SE").toString());
+                                    DC1.setText(values.get("DC IA").toString()+"/20");
+                                    DC2.setText(values.get("DC IA").toString()+"/20");
+                                    DC3.setText(values.get("DC IA").toString()+"/20");
+                                    DC4.setText(values.get("DC SE").toString()+"/80");
 
                                     TextView DLOC41=(TextView)findViewById(R.id.textDLOC41);
                                     TextView DLOC42=(TextView)findViewById(R.id.textDLOC42);
                                     TextView DLOC43=(TextView)findViewById(R.id.textDLOC43);
                                     TextView DLOC44=(TextView)findViewById(R.id.textDLOC44);
 
-                                    DLOC41.setText(values.get("DLOCIV IA").toString());
-                                    DLOC42.setText(values.get("DLOCIV IA").toString());
-                                    DLOC43.setText(values.get("DLOCIV IA").toString());
-                                    DLOC44.setText(values.get("DLOCIV SE").toString());
+                                    DLOC41.setText(values.get("DLOCIV IA").toString()+"/20");
+                                    DLOC42.setText(values.get("DLOCIV IA").toString()+"/20");
+                                    DLOC43.setText(values.get("DLOCIV IA").toString()+"/20");
+                                    DLOC44.setText(values.get("DLOCIV SE").toString()+"/80");
 
                                     TextView ILOC21=(TextView)findViewById(R.id.textILOC21);
                                     TextView ILOC22=(TextView)findViewById(R.id.textILOC22);
                                     TextView ILOC23=(TextView)findViewById(R.id.textILOC23);
                                     TextView ILOC24=(TextView)findViewById(R.id.textILOC24);
 
-                                    ILOC21.setText(values.get("ILOCII IA").toString());
-                                    ILOC22.setText(values.get("ILOCII IA").toString());
-                                    ILOC23.setText(values.get("ILOCII IA").toString());
-                                    ILOC24.setText(values.get("ILOCII SE").toString());
+                                    ILOC21.setText(values.get("ILOCII IA").toString()+"/20");
+                                    ILOC22.setText(values.get("ILOCII IA").toString()+"/20");
+                                    ILOC23.setText(values.get("ILOCII IA").toString()+"/20");
+                                    ILOC24.setText(values.get("ILOCII SE").toString()+"/80");
 
                                     TextView MaProj21=(TextView)findViewById(R.id.textMaProj21);
                                     TextView MaProj22=(TextView)findViewById(R.id.textMaProj22);
@@ -88,7 +92,7 @@ public class Sem8 extends AppCompatActivity {
                                     MaProj21.setText("-");
                                     MaProj22.setText("-");
                                     MaProj23.setText("-");
-                                    MaProj24.setText(values.get("MajorProject II").toString());
+                                    MaProj24.setText(values.get("MajorProject II").toString()+"/50");
                                 }
                             }
                         }
