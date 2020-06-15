@@ -71,7 +71,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=""
-                    android:autoLink="web"
+                    android:autoLink="all"
+                    android:clickable="true"
                     android:textColor="#020024"
                     android:textSize="20dp" />
 
