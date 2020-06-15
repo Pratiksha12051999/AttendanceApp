@@ -49,7 +49,7 @@ public class Tabs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent goToAssign;
-                goToAssign = new Intent(Tabs.this, Assignment.class);
+                goToAssign = new Intent(Tabs.this, ShowAssignment.class);
                 startActivity(goToAssign);
             }
         });
