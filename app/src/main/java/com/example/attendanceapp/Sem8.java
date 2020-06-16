@@ -89,10 +89,10 @@ public class Sem8 extends AppCompatActivity {
                                     TextView MaProj23=(TextView)findViewById(R.id.textMaProj23);
                                     TextView MaProj24=(TextView)findViewById(R.id.textMaProj24);
 
-                                    MaProj21.setText("-");
-                                    MaProj22.setText("-");
-                                    MaProj23.setText("-");
-                                    MaProj24.setText(values.get("MajorProject II").toString()+"/50");
+                                    MaProj21.setText("-\n/50");
+                                    MaProj22.setText("-\n/50");
+                                    MaProj23.setText("-\n/50");
+                                    MaProj24.setText(values.get("MajorProject II").toString()+"\n/50");
                                 }
                             }
                         }

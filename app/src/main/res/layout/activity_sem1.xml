@@ -30,11 +30,11 @@
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="1dp"
                 android:background="#ffffff"
-                android:fontFamily="@font/acme"
+                android:textStyle="bold"
                 android:padding="10dp"
                 android:text="Subject"
                 android:textColor="#000000"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/textIA1"
@@ -45,11 +45,11 @@
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="1dp"
                 android:background="#ffffff"
-                android:fontFamily="@font/acme"
+                android:textStyle="bold"
                 android:padding="10dp"
                 android:text="IA-1"
                 android:textColor="#000000"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/textIA2"
@@ -60,11 +60,11 @@
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="1dp"
                 android:background="#ffffff"
-                android:fontFamily="@font/acme"
+                android:textStyle="bold"
                 android:padding="10dp"
                 android:text="IA-2"
                 android:textColor="#000000"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/textAvg"
@@ -75,11 +75,11 @@
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="1dp"
                 android:background="#ffffff"
-                android:fontFamily="@font/acme"
+                android:textStyle="bold"
                 android:padding="10dp"
                 android:text="Avg "
                 android:textColor="#000000"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/textSem"
@@ -90,11 +90,11 @@
                 android:layout_marginRight="2dp"
                 android:layout_marginBottom="1dp"
                 android:background="#ffffff"
-                android:fontFamily="@font/acme"
+                android:textStyle="bold"
                 android:padding="10dp"
                 android:text="Sem"
                 android:textColor="#000000"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
         </TableRow>
 
         <TableRow
@@ -110,11 +110,11 @@
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="1dp"
                 android:background="#ffffff"
-                android:fontFamily="@font/acme"
+                android:textStyle="bold"
                 android:padding="10dp"
                 android:text="AM-1"
                 android:textColor="#000000"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/textAM11"
@@ -183,11 +183,11 @@
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="1dp"
                 android:background="#ffffff"
-                android:fontFamily="@font/acme"
+                android:textStyle="bold"
                 android:padding="10dp"
                 android:text="AP-1"
                 android:textColor="#000000"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/textAP11"
@@ -256,11 +256,11 @@
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="1dp"
                 android:background="#ffffff"
-                android:fontFamily="@font/acme"
+                android:textStyle="bold"
                 android:padding="10dp"
                 android:text="AC-1"
                 android:textColor="#000000"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/textAC11"
@@ -329,11 +329,11 @@
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="1dp"
                 android:background="#ffffff"
-                android:fontFamily="@font/acme"
+                android:textStyle="bold"
                 android:padding="10dp"
                 android:text="EM"
                 android:textColor="#000000"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/textEM1"
@@ -402,11 +402,11 @@
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="1dp"
                 android:background="#ffffff"
-                android:fontFamily="@font/acme"
+                android:textStyle="bold"
                 android:padding="10dp"
                 android:text="BEE"
                 android:textColor="#000000"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/textBEE1"
@@ -475,11 +475,11 @@
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="1dp"
                 android:background="#ffffff"
-                android:fontFamily="@font/acme"
+                android:textStyle="bold"
                 android:padding="10dp"
                 android:text="EVS"
                 android:textColor="#000000"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/textEVS1"
@@ -541,7 +541,7 @@
         android:id="@+id/textStudentName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/acme"
+        android:textStyle="bold"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"

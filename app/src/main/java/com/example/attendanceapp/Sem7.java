@@ -99,10 +99,10 @@ public class Sem7 extends AppCompatActivity {
                                     TextView MaProj13=(TextView)findViewById(R.id.textMaProj13);
                                     TextView MaProj14=(TextView)findViewById(R.id.textMaProj14);
 
-                                    MaProj11.setText("-");
-                                    MaProj12.setText("-");
-                                    MaProj13.setText("-");
-                                    MaProj14.setText(values.get("MajorProject I").toString()+"/50");
+                                    MaProj11.setText("-\n/50");
+                                    MaProj12.setText("-\n/50");
+                                    MaProj13.setText("-\n/50");
+                                    MaProj14.setText(values.get("MajorProject I").toString()+"\n/50");
                                 }
                             }
                         }

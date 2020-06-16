@@ -33,8 +33,8 @@
                 android:padding="10dp"
                 android:text="Subject"
                 android:textColor="#000000"
-                android:textSize="20sp"
-                app:fontFamily="@font/acme" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textIA1"
@@ -48,8 +48,8 @@
                 android:padding="10dp"
                 android:text="IA-1"
                 android:textColor="#000000"
-                android:textSize="20sp"
-                app:fontFamily="@font/acme" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textIA2"
@@ -63,8 +63,8 @@
                 android:padding="10dp"
                 android:text="IA-2"
                 android:textColor="#000000"
-                android:textSize="20sp"
-                app:fontFamily="@font/acme" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textAvg"
@@ -78,8 +78,8 @@
                 android:padding="10dp"
                 android:text="Avg "
                 android:textColor="#000000"
-                android:textSize="20sp"
-                app:fontFamily="@font/acme" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textSem"
@@ -93,8 +93,8 @@
                 android:padding="10dp"
                 android:text="Sem"
                 android:textColor="#000000"
-                android:textSize="20sp"
-                app:fontFamily="@font/acme" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow
@@ -113,8 +113,8 @@
                 android:padding="10dp"
                 android:text="MP"
                 android:textColor="#000000"
-                android:textSize="20sp"
-                app:fontFamily="@font/acme" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textMP1"
@@ -186,8 +186,8 @@
                 android:padding="10dp"
                 android:text="DBMS"
                 android:textColor="#000000"
-                android:textSize="20sp"
-                app:fontFamily="@font/acme" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textDBMS1"
@@ -259,8 +259,8 @@
                 android:padding="10dp"
                 android:text="CN"
                 android:textColor="#000000"
-                android:textSize="20sp"
-                app:fontFamily="@font/acme" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textCN1"
@@ -332,8 +332,8 @@
                 android:padding="10dp"
                 android:text="TCS"
                 android:textColor="#000000"
-                android:textSize="20sp"
-                app:fontFamily="@font/acme" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textTCS1"
@@ -405,8 +405,8 @@
                 android:padding="10dp"
                 android:text="DLOC-1"
                 android:textColor="#000000"
-                android:textSize="20sp"
-                app:fontFamily="@font/acme" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textDLOC11"
@@ -478,8 +478,8 @@
                 android:padding="10dp"
                 android:text="BCE"
                 android:textColor="#000000"
-                android:textSize="20sp"
-                app:fontFamily="@font/acme" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textBCE1"
