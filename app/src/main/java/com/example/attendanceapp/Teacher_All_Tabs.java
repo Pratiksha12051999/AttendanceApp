@@ -24,7 +24,7 @@ public class Teacher_All_Tabs extends AppCompatActivity implements NavigationVie
     FirebaseAuth mAuth;
 
     public void showResults(View view) {
-        startActivity(new Intent(this, upload.class));
+        startActivity(new Intent(this, UploadResults.class));
     }
 
     public void showAttributions(View view) { startActivity(new Intent(this, Attributions.class)); }
