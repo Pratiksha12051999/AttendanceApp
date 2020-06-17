@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background"
     android:fitsSystemWindows="true"
-    tools:context=".AllTabsActivity"
+    tools:context=".Teacher_All_Tabs"
     tools:openDrawer="start">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -76,6 +76,7 @@
                     android:background="@drawable/grad_bottom"
                     android:drawableTop="@drawable/score"
                     android:gravity="center"
+                    android:onClick="showResults"
                     android:paddingTop="10dp"
                     app:layout_column="0"
                     app:layout_columnWeight="1"

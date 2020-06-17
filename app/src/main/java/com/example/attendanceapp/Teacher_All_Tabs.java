@@ -23,10 +23,11 @@ public class Teacher_All_Tabs extends AppCompatActivity implements NavigationVie
     private DrawerLayout drawer;
     FirebaseAuth mAuth;
 
-    public void showAttributions(View view) {
-        Intent attris = new Intent(this, Attributions.class);
-        startActivity(attris);
+    public void showResults(View view) {
+        startActivity(new Intent(this, upload.class));
     }
+
+    public void showAttributions(View view) { startActivity(new Intent(this, Attributions.class)); }
 
     public void showAttendance(View view) {
         Intent goToAttendancePage = new Intent(Teacher_All_Tabs.this, TeacherAttendance.class);
@@ -68,9 +69,7 @@ public class Teacher_All_Tabs extends AppCompatActivity implements NavigationVie
         mAuth = FirebaseAuth.getInstance();
         switch (item.getItemId()) {
             case R.id.nav_announcement:
-                break;
             case R.id.nav_share:
-                break;
             case R.id.nav_contact:
                 break;
             case R.id.nav_logout:
