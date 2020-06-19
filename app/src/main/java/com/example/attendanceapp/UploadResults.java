@@ -1,16 +1,27 @@
 package com.example.attendanceapp;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -29,12 +40,15 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-public class UploadResults extends AppCompatActivity {
+public class UploadResults extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private static final String TAG = "";
     Intent filepath;
     Button bfile;
     DatabaseReference mRef;
+    AutoCompleteTextView acSubjects;
+    private DrawerLayout drawer;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +65,35 @@ public class UploadResults extends AppCompatActivity {
             }
         });
 
+        //CardView
+        CardView cv= findViewById(R.id.cv);
+        cv.setTranslationY(+10000);
+        cv.animate().translationYBy(-10000).setDuration(1000);
+        cv.setContentPadding(30, 30, 30, 30);
+
+        //AutoCompleteView
+        String subjects[]=getResources().getStringArray(R.array.subjects);
+
+        acSubjects=findViewById(R.id.autoCompleteTextView);
+        ArrayAdapter arrayAdapter=new ArrayAdapter(this, android.R.layout.simple_list_item_1, subjects);
+        acSubjects.setAdapter(arrayAdapter);
+
+        //NavBar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        drawer = findViewById(R.id.drawer_layout);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
     }
+
+    //Excel Data Code
 
     private String getCellAsString(Row row, int c, FormulaEvaluator formulaEvaluator) {
         String value = "";
@@ -170,4 +212,36 @@ public class UploadResults extends AppCompatActivity {
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
+
+    //Excel Data Code Ends
+
+    //NavBar Code
+
+    @Override
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        }
+        super.onBackPressed();
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        mAuth = FirebaseAuth.getInstance();
+        switch (item.getItemId()) {
+            case R.id.nav_announcement:
+                break;
+            case R.id.nav_share:
+                break;
+            case R.id.nav_contact:
+                break;
+            case R.id.nav_logout:
+                FirebaseAuth.getInstance().signOut();
+                Intent goBackToLogin = new Intent(UploadResults.this, MainActivity.class);
+                startActivity(goBackToLogin);
+        }
+        return true;
+    }
+
+    //NavBar Code Ends
 }

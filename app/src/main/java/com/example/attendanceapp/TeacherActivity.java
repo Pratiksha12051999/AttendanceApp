@@ -89,4 +89,13 @@ public class TeacherActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+        startActivity(new Intent(TeacherActivity.this, MainActivity.class));
+        finish();
+    }
+
 }
