@@ -22,10 +22,10 @@ public class notneededAssignment_yearmain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_year_assignment);
         yearList = new ArrayList<>();
-        yearList.add(new notneededAssignment_yearwise(R.drawable.ic_circle, "1st YEAR","SEMESTER1", "SEMESTER2"));
-        yearList.add(new notneededAssignment_yearwise(R.drawable.ic_circle, "2nd YEAR","SEMESTER3", "SEMESTER4"));
-        yearList.add(new notneededAssignment_yearwise(R.drawable.ic_circle, "3rd YEAR","SEMESTER5", "SEMESTER6"));
-        yearList.add(new notneededAssignment_yearwise(R.drawable.ic_circle, "4th YEAR","SEMESTER7", "SEMESTER8"));
+        yearList.add(new notneededAssignment_yearwise(R.drawable.vesitlogo, "1st YEAR","SEMESTER1", "SEMESTER2"));
+        yearList.add(new notneededAssignment_yearwise(R.drawable.vesitlogo, "2nd YEAR","SEMESTER3", "SEMESTER4"));
+        yearList.add(new notneededAssignment_yearwise(R.drawable.vesitlogo, "3rd YEAR","SEMESTER5", "SEMESTER6"));
+        yearList.add(new notneededAssignment_yearwise(R.drawable.vesitlogo, "4th YEAR","SEMESTER7", "SEMESTER8"));
         adapter = new notneededAssignment_year_adapter(yearList);
         recyclerview_year = (RecyclerView) findViewById(R.id.recyclerview_year);
         //recyclerview_year.setHasFixedSize(true);
