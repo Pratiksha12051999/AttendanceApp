@@ -13,13 +13,13 @@ import androidx.viewpager.widget.PagerAdapter;
 
 import java.util.List;
 
-public class Assignment_Model_Adapter extends PagerAdapter {
+public class Adapter_Assignment extends PagerAdapter {
 
     private List<Assignment_Model> models;
     private LayoutInflater layoutInflater;
     private Context context;
 
-    public Assignment_Model_Adapter(List<Assignment_Model> models, Context context) {
+    public Adapter_Assignment(List<Assignment_Model> models, Context context) {
         this.models = models;
         this.context = context;
     }

@@ -43,16 +43,34 @@ public class Tabs extends AppCompatActivity {
                 startActivity(goToExam);
             }
         });
-
         assignButton = findViewById(R.id.cell2_);;
         assignButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent goToAssign;
-                goToAssign = new Intent(Tabs.this, ShowAssignment.class);
+                goToAssign = new Intent(Tabs.this, Assignment_yearbutton.class);
                 startActivity(goToAssign);
             }
         });
+//        assignButton = findViewById(R.id.cell2_);;
+//        assignButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent goToAssign;
+//                goToAssign = new Intent(Tabs.this, Assignment_Maindisplay_page.class);
+//                startActivity(goToAssign);
+//            }
+//        });
+
+//        assignButton = findViewById(R.id.cell2_);;
+//        assignButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent goToAssign;
+//                goToAssign = new Intent(Tabs.this, ShowAssignment.class);
+//                startActivity(goToAssign);
+//            }
+//        });
     }
 
 }

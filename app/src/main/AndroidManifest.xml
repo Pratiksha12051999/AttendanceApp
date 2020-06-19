@@ -21,6 +21,9 @@
         <activity android:name=".AddAnnouncement"/>
         <activity android:name=".Exam"/>
         <activity android:name=".Assignment"/>
+        <activity android:name=".notneededAssignment_yearmain"/>
+        <activity android:name=".Assignment_yearbutton"/>
+        <activity android:name=".Assignment_subject_display_page"/>
         <activity android:name=".ShowAssignment"/>
         <activity android:name=".MainActivity">
             <intent-filter>
