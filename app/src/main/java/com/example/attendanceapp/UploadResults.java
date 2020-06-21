@@ -142,14 +142,26 @@ public class UploadResults extends AppCompatActivity implements NavigationView.O
             int cellCount=row.getPhysicalNumberOfCells();
 
             for(int c=0; c<cellCount; c++){
-                if(row.getCell(c)!=null){headers.add(getCellAsString(row, c, formulaEvaluator));}else{headers.add("");};
+                if(row.getCell(c)!=null){headers.add(getCellAsString(row, c, formulaEvaluator).trim());}else{headers.add("");};
             }
 
             System.out.println(headers);
 
             for(int r=1; r<rowCount; r++) {
                 row = sheet.getRow(r);
-                if (row.getCell(0) != null) {
+                if(row.getCell(0)!=null){
+                    String id = row.getCell(0).getStringCellValue();
+                    mRef = FirebaseDatabase.getInstance().getReference().child("1xdYDgDXnj1ZVODHEdcSAv51ex58GuGVPBrBTQVFOrUs").child("Sheet1").child(id);
+                    for(int c=2; c<cellCount; c++){
+                        if(row.getCell(c)!=null) {
+                            mRef.child(headers.get(c)).setValue(getCellAsString(row, c, formulaEvaluator));
+                        } else {
+                            mRef.child(headers.get(c)).setValue("");
+                        }
+                    }
+                }
+
+                /*if (row.getCell(0) != null) {
                     String id = row.getCell(0).getStringCellValue();
                     mRef = FirebaseDatabase.getInstance().getReference().child("1xdYDgDXnj1ZVODHEdcSAv51ex58GuGVPBrBTQVFOrUs").child("Sheet1").child(id);
                     //Name
@@ -189,10 +201,11 @@ public class UploadResults extends AppCompatActivity implements NavigationView.O
                         mRef.child(headers.get(6)).setValue("");
                     }
                     ;
-
-                    Toast.makeText(this, "successful", Toast.LENGTH_SHORT).show();
                 }
+                */
             }
+            Toast.makeText(this, "successful", Toast.LENGTH_SHORT).show();
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
