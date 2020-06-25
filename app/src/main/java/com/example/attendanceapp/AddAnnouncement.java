@@ -20,7 +20,7 @@ import java.sql.Timestamp;
 
 public class AddAnnouncement extends AppCompatActivity {
     public EditText subject, content;
-    Button Add;
+    Button Add, delete;
     FirebaseDatabase root;
     DatabaseReference mDatabase;
     FirebaseAuth firebaseAuth;
@@ -32,13 +32,28 @@ public class AddAnnouncement extends AppCompatActivity {
         setContentView(R.layout.activity_addannouncement);
         subject = findViewById(R.id.AddSubject);
         content = findViewById(R.id.AddContent);
+
         root = FirebaseDatabase.getInstance();
         mDatabase = root.getReference();
         final Timestamp New = new Timestamp(System.currentTimeMillis());
 
 
+        delete = findViewById(R.id.img_delete);
+        delete.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v){
+              firebaseAuth= FirebaseAuth.getInstance();
+              mDatabase = FirebaseDatabase.getInstance().getReference("Announcements");
+              String Subject = subject.getText().toString().trim();
+              String Content = content.getText().toString().trim();
+              String timestamp =New.toString();
+              Ann ann = new Ann(Subject, Content, timestamp);
+              mDatabase.removeValue();
+//              Toast.makeText(this,"Semester 1",Toast.LENGTH_SHORT).show();
+          }
 
-        Add = findViewById(R.id.AddAnnouncement);
+                                  });
+        Add = findViewById(R.id.addeve);
         Add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -38,7 +38,7 @@
         <LinearLayout android:layout_height="match_parent"
             android:layout_width="match_parent">
             <Button
-                android:id="@+id/AddAnnouncement"
+                android:id="@+id/addeve"
                 android:layout_width="252dp"
                 android:layout_height="49dp"
                 android:background="@drawable/button_border"

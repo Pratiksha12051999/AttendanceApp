@@ -69,34 +69,34 @@ public class Assignment_subject_display_page extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
                 if (position == 0){
-                    openmaths();
+//                    openmaths();
                 }
                 if (position == 1){
-//                    openphysics();
+                    openphysics();
                 }
                 if (position == 2){
-                    openchemistry();
+//                    openchemistry();
                 }
                 if (position == 3){
-                    openeng();
+//                    openeng();
                 }
 
             }
-//            public void openphysics(){
-//                Intent maths = new Intent(Assignment_subject_display_page.this,Assignment.class);
-//                startActivity(maths);
-//            }
-        public void openeng(){
-                Intent maths = new Intent(Assignment_subject_display_page.this,Assignment.class);
-                startActivity(maths);
-            }public void openchemistry(){
-                Intent maths = new Intent(Assignment_subject_display_page.this,Assignment.class);
-                startActivity(maths);
-            }
-            public void openmaths(){
+            public void openphysics(){
                 Intent maths = new Intent(Assignment_subject_display_page.this,ShowAssignment.class);
                 startActivity(maths);
             }
+//        public void openeng(){
+//                Intent maths = new Intent(Assignment_subject_display_page.this,Assignment.class);
+//                startActivity(maths);
+//            }public void openchemistry(){
+//                Intent maths = new Intent(Assignment_subject_display_page.this,Assignment.class);
+//                startActivity(maths);
+//            }
+//            public void openmaths(){
+//                Intent maths = new Intent(Assignment_subject_display_page.this,ShowAssignment.class);
+//                startActivity(maths);
+//            }
 
             @Override
             public void onPageScrollStateChanged(int state) {
