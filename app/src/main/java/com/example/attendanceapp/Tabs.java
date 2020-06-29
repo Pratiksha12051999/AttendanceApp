@@ -57,7 +57,7 @@ public class Tabs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent goToEvent;
-                goToEvent = new Intent(Tabs.this, Event_details.class);
+                goToEvent = new Intent(Tabs.this, Events_show_cards_on_recycler.class);
                 startActivity(goToEvent);
             }
         });

@@ -17,6 +17,12 @@
         tools:layout_editor_absoluteY="32dp"
         tools:ignore="MissingConstraints"
         app:cardCornerRadius="15dp">
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_weight="4"
+            android:background="#a9a9a9" />
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -28,7 +34,7 @@
                 android:layout_marginTop="10dp">
 
                 <TextView
-                    android:id="@+id/event"
+                    android:id="@+id/eventName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -37,12 +43,15 @@
                     android:textSize="25dp" />
 
                 <TextView
-                    android:id="@+id/eventName"
+                    android:id="@+id/EventName"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp" />
+                    android:layout_height="38dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#020024"
+                    android:textSize="20sp" />
             </LinearLayout>
             <Button
+                android:id="@+id/expand"
                 android:layout_width="210dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="65dp"
@@ -60,17 +69,7 @@
             tools:srcCompat="@tools:sample/avatars" />
 
         </RelativeLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-            <View
-                android:id="@+id/divider7"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="4"
-                />
-        </LinearLayout>
+
     </androidx.cardview.widget.CardView>
 
 

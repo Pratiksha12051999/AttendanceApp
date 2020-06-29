@@ -21,20 +21,20 @@ import java.util.ArrayList;
 public class Events_show_cards_on_recycler extends AppCompatActivity {
 
     DatabaseReference mDatabase;
-    RecyclerView recycleview;
+    RecyclerView recyclerview;
     Button addeve;
     ArrayList<String> events = new ArrayList<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_event_c_show);
+        setContentView(R.layout.activity_event_r_list);
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Events");
         mDatabase.keepSynced(true);
 
-        recycleview = (RecyclerView)findViewById(R.id.recyclerview);
-        recycleview.setHasFixedSize(true);
-        recycleview.setLayoutManager(new LinearLayoutManager(this));
+        recyclerview = (RecyclerView)findViewById(R.id.recycleview);
+        recyclerview.setHasFixedSize(true);
+        recyclerview.setLayoutManager(new LinearLayoutManager(this));
 
         addeve = findViewById(R.id.addeve);
         addeve.setOnClickListener(new View.OnClickListener() {
@@ -49,26 +49,27 @@ public class Events_show_cards_on_recycler extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        FirebaseRecyclerAdapter<Events_show_Helper, Events_show_cards_on_recycler.EventViewHolder>firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Events_show_Helper,EventViewHolder>
+        FirebaseRecyclerAdapter<Events_show_Helper, Events_show_cards_on_recycler.EventViewHolder>firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Events_show_Helper, EventViewHolder>
                 (Events_show_Helper.class,R.layout.activity_event_c_show, EventViewHolder.class, mDatabase){
             @Override
             protected void populateViewHolder(EventViewHolder eventViewHolder, Events_show_Helper model, int i) {
-                eventViewHolder.seteventName(model.getEventName());
+                eventViewHolder.setEventName(model.getEventName());
+
             }
         };
-        recycleview.setAdapter(firebaseRecyclerAdapter);
+        recyclerview.setAdapter(firebaseRecyclerAdapter);
     }
     public static class EventViewHolder extends RecyclerView.ViewHolder{
         View view;
 
-        public EventViewHolder(@NonNull View itemView, View view) {
+        public EventViewHolder(View itemView) {
             super(itemView);
-            this.view = view;
+            view = itemView;
         }
 
-        public void seteventName(String eventName){
-            TextView eventname = (TextView) view.findViewById(R.id.eventName);
-            eventname.setText(eventName);
+        public void setEventName(String eventName) {
+            TextView EventName = (TextView) view.findViewById(R.id.EventName);
+            EventName.setText(eventName);
         }
 
 

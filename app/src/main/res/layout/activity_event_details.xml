@@ -8,7 +8,7 @@
 
 
     <EditText
-        android:id="@+id/event"
+        android:id="@+id/eventName"
         android:layout_width="310dp"
         android:layout_height="44dp"
         android:layout_marginTop="32dp"
@@ -31,7 +31,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/event" />
+        app:layout_constraintTop_toBottomOf="@+id/eventName" />
 
     <EditText
         android:id="@+id/dateofevent"
