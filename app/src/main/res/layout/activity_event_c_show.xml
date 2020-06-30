@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     >
 
     <androidx.cardview.widget.CardView
@@ -51,7 +51,7 @@
                     android:textSize="20sp" />
             </LinearLayout>
             <Button
-                android:id="@+id/expand"
+                android:id="@+id/click_expand"
                 android:layout_width="210dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="65dp"

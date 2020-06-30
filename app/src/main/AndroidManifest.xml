@@ -21,6 +21,7 @@
         <activity android:name=".AddAnnouncement"/>
         <activity android:name=".Exam"/>
         <activity android:name=".Event_details"/>
+        <activity android:name=".Event_click_event_button"/>
         <activity android:name=".Events_show_cards_on_recycler"/>
         <activity android:name=".Assignment"/>
         <activity android:name=".notneededAssignment_yearmain"/>
