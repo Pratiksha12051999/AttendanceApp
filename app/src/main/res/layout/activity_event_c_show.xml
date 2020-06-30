@@ -9,7 +9,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="410dp"
-        android:layout_height="116dp"
+        android:layout_height="250dp"
         android:layout_marginStart="2dp"
         android:layout_marginLeft="2dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +25,7 @@
             android:background="#a9a9a9" />
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="@drawable/bg1">
 
             <LinearLayout
@@ -50,16 +50,82 @@
                     android:textColor="#020024"
                     android:textSize="20sp" />
             </LinearLayout>
-            <Button
-                android:id="@+id/click_expand"
-                android:layout_width="210dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="65dp"
-                android:layout_marginLeft="20dp"
-                android:text="Click to view event"
-                />
+            <LinearLayout
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="60dp">
 
-        <ImageView
+            <TextView
+                android:id="@+id/dept"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="Department: "
+                android:textColor="	#000000"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/Dept"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="#020024"
+                android:textSize="20sp" />
+        </LinearLayout>
+            <LinearLayout
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="110dp">
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="Date: "
+                    android:textColor="	#000000"
+                    android:textSize="25dp" />
+
+                <TextView
+                    android:id="@+id/Date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#020024"
+                    android:textSize="20sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="160dp">
+
+                <TextView
+                    android:id="@+id/fromtime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="Fromtime: "
+                    android:textColor="	#000000"
+                    android:textSize="25dp" />
+
+                <TextView
+                    android:id="@+id/Fromtime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#020024"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+<!--            <Button-->
+<!--                android:id="@+id/click_expand"-->
+<!--                android:layout_width="210dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="20dp"-->
+<!--                android:layout_marginTop="555dp"-->
+<!--                android:text="Click to view event" />-->
+
+            <ImageView
             android:id="@+id/img_display"
             android:layout_width="wrap_content"
             android:layout_height="112dp"
@@ -67,6 +133,8 @@
             android:layout_marginRight="30dp"
             android:layout_marginLeft="250dp"
             tools:srcCompat="@tools:sample/avatars" />
+
+
 
         </RelativeLayout>
 

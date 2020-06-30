@@ -24,7 +24,7 @@ import java.util.ArrayList;
 
 public class Events_show_cards_on_recycler extends AppCompatActivity {
 
-    DatabaseReference mDatabase= FirebaseDatabase.getInstance().getReference("Events");
+    DatabaseReference mDatabase;
     RecyclerView recyclerview;
     Button addeve, click_expand;
     private ArrayList<String> events = new ArrayList<>();
@@ -36,6 +36,7 @@ public class Events_show_cards_on_recycler extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_r_list);
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Events");
         mDatabase.keepSynced(true);
 
         recyclerview = (RecyclerView)findViewById(R.id.recycleview);
@@ -56,15 +57,18 @@ public class Events_show_cards_on_recycler extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        FirebaseRecyclerAdapter<Events_show_Helper, Events_show_cards_on_recycler.EventViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Events_show_Helper, EventViewHolder>
+        FirebaseRecyclerAdapter<Events_show_Helper, EventViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Events_show_Helper, EventViewHolder>
                 (Events_show_Helper.class, R.layout.activity_event_c_show, EventViewHolder.class, mDatabase) {
             @Override
-            protected void populateViewHolder(EventViewHolder eventViewHolder, Events_show_Helper model, int i) {
-                eventViewHolder.setEventName(model.getEventName());
+            protected void populateViewHolder(EventViewHolder eventViewHolder, Events_show_Helper event, int i) {
+                eventViewHolder.setEventName(event.getEventName());
+                eventViewHolder.setDeptName(event.getDeptName());
+                eventViewHolder.setDateofevent(event.getDateofevent());
 
             }
         };
         recyclerview.setAdapter(firebaseRecyclerAdapter);
+
     }
 
 
@@ -82,9 +86,13 @@ public class Events_show_cards_on_recycler extends AppCompatActivity {
             EventName.setText(eventName);
         }
 
-
-
-
-
+        public void setDeptName(String deptName) {
+            TextView Dept = (TextView) view.findViewById(R.id.Dept);
+            Dept.setText(deptName);
+        }
+        public void setDateofevent(String dateofevent) {
+            TextView Date= (TextView) view.findViewById(R.id.Date);
+            Date.setText(dateofevent);
+        }
     }
 }
