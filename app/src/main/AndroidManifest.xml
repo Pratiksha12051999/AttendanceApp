@@ -11,6 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
+		<activity android:name=".AddGrievance"></activity>
+        <activity android:name=".StudentAttendance" />
+        <activity android:name=".UploadAttendance" />
+        <activity android:name=".TeacherAttendance" />
+        <activity android:name=".Teacher_All_Tabs" />
         <activity android:name=".Attributions" />
         <activity android:name=".Tabs" />
         <activity android:name=".TeacherRegister" />
@@ -21,6 +26,8 @@
         <activity android:name=".AddAnnouncement"/>
         <activity android:name=".Exam"/>
         <activity android:name=".Event_details"/>
+        <activity android:name=".Event_click_event_button"/>
+        <activity android:name=".Events_show_cards_on_recycler"/>
         <activity android:name=".Assignment"/>
         <activity android:name=".notneededAssignment_yearmain"/>
         <activity android:name=".Assignment_yearbutton"/>

@@ -37,22 +37,6 @@ public class AddAnnouncement extends AppCompatActivity {
         mDatabase = root.getReference();
         final Timestamp New = new Timestamp(System.currentTimeMillis());
 
-
-        delete = findViewById(R.id.img_delete);
-        delete.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v){
-              firebaseAuth= FirebaseAuth.getInstance();
-              mDatabase = FirebaseDatabase.getInstance().getReference("Announcements");
-              String Subject = subject.getText().toString().trim();
-              String Content = content.getText().toString().trim();
-              String timestamp =New.toString();
-              Ann ann = new Ann(Subject, Content, timestamp);
-              mDatabase.removeValue();
-//              Toast.makeText(this,"Semester 1",Toast.LENGTH_SHORT).show();
-          }
-
-                                  });
         Add = findViewById(R.id.addeve);
         Add.setOnClickListener(new View.OnClickListener() {
             @Override
