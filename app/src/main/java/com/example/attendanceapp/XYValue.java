@@ -15,8 +15,11 @@ public class XYValue {
     private int d;
     private int e;
     private int f = 0;
+    private int g = 0;
+    private int h = 0;
+    private int i = 0;
 
-    public XYValue(int x, String y, int z, int a, int b, int c, int d, int e, int f) {
+    public XYValue(int x, String y, int z, int a, int b, int c, int d, int e, int f, int g, int h, int i) {
         this.x = x;
         this.y = y;
         this.z = z;
@@ -26,7 +29,11 @@ public class XYValue {
         this.d = d;
         this.e = e;
         this.f = f;
+        this.g = g;
+        this.h = h;
+        this.i = i;
     }
+
 
     public int getX() {
         return x;
@@ -99,5 +106,27 @@ public class XYValue {
         this.f = f;
     }
 
+    public int getG() {
+        return g;
+    }
 
+    public void setG(int g) {
+        this.g = g;
+    }
+
+    public int getH() {
+        return h;
+    }
+
+    public void setH(int h) {
+        this.h = h;
+    }
+
+    public int getI() {
+        return i;
+    }
+
+    public void setI(int i) {
+        this.i = i;
+    }
 }

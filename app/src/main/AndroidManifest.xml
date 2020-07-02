@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".StudentAttendance"></activity>
+        <activity android:name=".AddGrievance"></activity>
+        <activity android:name=".StudentAttendance" />
         <activity android:name=".UploadAttendance" />
         <activity android:name=".TeacherAttendance" />
         <activity android:name=".Teacher_All_Tabs" />

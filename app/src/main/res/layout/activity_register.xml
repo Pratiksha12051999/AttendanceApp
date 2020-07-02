@@ -8,7 +8,7 @@
     tools:context=".RegisterActivity">
 
     <EditText
-        android:id="@+id/emailTeacherRegister"
+        android:id="@+id/titleTextBox"
         android:layout_width="267dp"
         android:layout_height="55dp"
         android:layout_marginTop="40dp"
@@ -54,7 +54,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailTeacherRegister" />
+        app:layout_constraintTop_toBottomOf="@+id/titleTextBox" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -68,7 +68,7 @@
         app:srcCompat="@drawable/vesitlogo" />
 
     <Button
-        android:id="@+id/registerTeacherButton"
+        android:id="@+id/submitButton"
         android:layout_width="252dp"
         android:layout_height="49dp"
         android:layout_marginTop="60dp"
@@ -102,6 +102,6 @@
         android:text="Already Registered ?"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerTeacherButton" />
+        app:layout_constraintTop_toBottomOf="@+id/submitButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

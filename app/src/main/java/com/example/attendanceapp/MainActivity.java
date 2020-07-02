@@ -35,10 +35,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         fAuth = FirebaseAuth.getInstance();
-        emailBox = findViewById(R.id.emailTeacherRegister);
+        emailBox = findViewById(R.id.titleTextBox);
         admissionNo = findViewById(R.id.admissionNoRegister);
         passwordField = findViewById(R.id.passwordTeacherRegister);
-        loginButton = findViewById(R.id.registerTeacherButton);
+        loginButton = findViewById(R.id.submitButton);
         notRegistered = findViewById(R.id.noRegistered);
         teacherLogin = findViewById(R.id.teacherLogin);
         showPassword = findViewById(R.id.showPassword2);

@@ -72,7 +72,7 @@ public class UploadAttendance extends AppCompatActivity {
     String selectedMonth;
     String numberOfStudents;
     String[] subjects;
-    int  yearText;
+    String  yearText;
     int c,r;
     int r1,c1;
     int r2,c2;
@@ -274,43 +274,61 @@ public class UploadAttendance extends AppCompatActivity {
         for(int i = 0; i <rows.length; i++) {
             //Split the columns of the rows
             String[] columns = rows[i].split(",");
+            String a,b,c,d,e,f,x,y,z = null;
+            String g = null;
+            String h = null;
             //use try catch to make sure there are no "" that try to parse into doubles.
             try{
                 progressBar.setVisibility(View.VISIBLE);
 
-                String x = String.valueOf(columns[0]).split("\\.")[0];
-                String y = columns[1].replaceAll("\\[", "").replaceAll("\\]","");
-                String z = String.valueOf(columns[2]).split("\\.")[0];
-                String a = String.valueOf(columns[3]).split("\\.")[0];
-                String b = String.valueOf(columns[4]).split("\\.")[0];
-                String c = String.valueOf(columns[5]).split("\\.")[0];
-                String d = String.valueOf(columns[6]).split("\\.")[0];
-                String e = String.valueOf(columns[7]).split("\\.")[0];
-                String f = String.valueOf(columns[8]).split("\\.")[0];
+                x = String.valueOf(columns[0]).split("\\.")[0];
+                y = columns[1].replaceAll("\\[", "").replaceAll("\\]","");
+                z = String.valueOf(columns[2]).split("\\.")[0];
+                a = String.valueOf(columns[3]).split("\\.")[0];
+                b = String.valueOf(columns[4]).split("\\.")[0];
+                c = String.valueOf(columns[5]).split("\\.")[0];
+                d = String.valueOf(columns[6]).split("\\.")[0];
+                e = String.valueOf(columns[7]).split("\\.")[0];
+                f = String.valueOf(columns[8]).split("\\.")[0];
+                if(columns.length == 10){
+                    g = String.valueOf(columns[9]).split("\\.")[0];
+                }
+                if(columns.length == 11){
+                    h = String.valueOf(columns[10]).split("\\.")[0];
+                }
 
-                String cellInfo2 = "(x,y,z): (" + x + "," + y + "," + z + "," + a + "," + b + "," + c + "," + d + "," + e + "," + f + ")";
+                String cellInfo2 = "(x,y,z): (" + x + "," + y + "," + z + "," + a + "," + b + "," + c + "," + d + "," + e + "," + f + "," + g + "," + h + ")";
                 Log.d(TAG, "ParseStringBuilder: Data from row: " + cellInfo2);
                 FirebaseUser user = mAuth.getCurrentUser();
                 String emailID = user.getEmail();
                 Calendar calendar = Calendar.getInstance();
-                yearText = calendar.get(Calendar.YEAR);
+                yearText = String.valueOf(calendar.get(Calendar.YEAR));
                 students = FirebaseDatabase.getInstance().getReference("Attendance");
                 String id = students.push().getKey();
                 Log.d("this is my array", "arr: " + Arrays.toString(subjects));
-                students.child(id).child("Year").setValue("2020");
-                students.child(id).child("Month").setValue(selectedMonth);
-                students.child(id).child("Division").setValue(divisionText);
-                students.child(id).child("Roll_No").setValue(x);
-                students.child(id).child("Name").setValue(y);
-                students.child(id).child("Subjects").child(subjects[0]).setValue(z);
-                students.child(id).child("Subjects").child(subjects[1]).setValue(a);
-                students.child(id).child("Subjects").child(subjects[2]).setValue(b);
-                students.child(id).child("Subjects").child(subjects[3]).setValue(c);
-                students.child(id).child("Subjects").child(subjects[4]).setValue(d);
-                students.child(id).child("Subjects").child(subjects[5]).setValue(e);
-                students.child(id).child("Total_Attendance").setValue(f);
-            }catch (NumberFormatException e){
-                Log.e(TAG, "parseStringBuilder: NumberFormatException: " + e.getMessage());
+                students.child(id).child("year").setValue("2020");
+                students.child(id).child("month").setValue(selectedMonth);
+                students.child(id).child("division").setValue(divisionText);
+                students.child(id).child("roll_No").setValue(x);
+                students.child(id).child("name").setValue(y);
+                int len = subjects.length;
+                for(int k=1; k<=len; k++){
+                    students.child(id).child("subject"+k).setValue(subjects[k-1]);
+                }
+                students.child(id).child("subjectatt1").setValue(z);
+                students.child(id).child("subjectatt2").setValue(a);
+                students.child(id).child("subjectatt3").setValue(b);
+                students.child(id).child("subjectatt4").setValue(c);
+                students.child(id).child("subjectatt5").setValue(d);
+                students.child(id).child("subjectatt6").setValue(e);
+                students.child(id).child("subjectatt7").setValue(f);
+                students.child(id).child("subjectatt8").setValue(g);
+                students.child(id).child("subjectatt9").setValue(h);
+                students.child(id).child("start_date").setValue(startDateText.toString());
+                students.child(id).child("end_date").setValue(endDateText.toString());
+                students.child(id).child("year").setValue(yearText);
+            }catch (NumberFormatException exp){
+                Log.e(TAG, "parseStringBuilder: NumberFormatException: " + exp.getMessage());
             }
         }
         progressBar.setVisibility(View.INVISIBLE);

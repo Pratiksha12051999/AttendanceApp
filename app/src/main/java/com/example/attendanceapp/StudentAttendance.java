@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -35,18 +37,23 @@ public class StudentAttendance extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         //1. SELECT * FROM Artists
-        dbArtists = FirebaseDatabase.getInstance().getReference("Attendance");
-        dbArtists.addListenerForSingleValueEvent(valueEventListener);
+        //dbArtists = FirebaseDatabase.getInstance().getReference("Attendance");
+        //dbArtists.addListenerForSingleValueEvent(valueEventListener);
+
+        Query query = FirebaseDatabase.getInstance().getReference("Attendance")
+                .orderByChild("roll_No")
+                .equalTo("52");
+        query.addListenerForSingleValueEvent(valueEventListener);
     }
 
     ValueEventListener valueEventListener = new ValueEventListener() {
         @Override
         public void onDataChange(DataSnapshot dataSnapshot) {
-            studentList.clear();
+            //studentList.clear();
             if (dataSnapshot.exists()) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Student student = snapshot.getValue(Student.class);
-                    studentList.add(student);
+                         Student student = snapshot.getValue(Student.class);
+                         studentList.add(student);
                 }
                 adapter.notifyDataSetChanged();
             }

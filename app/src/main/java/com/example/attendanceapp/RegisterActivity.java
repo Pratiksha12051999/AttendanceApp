@@ -5,10 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.NoCopySpan;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
-import android.text.method.TransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -17,29 +15,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 public class RegisterActivity extends AppCompatActivity {
     EditText emailBoxRegister;
@@ -55,10 +38,10 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         mFirebaseAuth = FirebaseAuth.getInstance();
-        emailBoxRegister = findViewById(R.id.emailTeacherRegister);
+        emailBoxRegister = findViewById(R.id.titleTextBox);
         admissionNoRegister = findViewById(R.id.admissionNoRegister);
         passwordFieldRegister = findViewById(R.id.passwordTeacherRegister);
-        registerButton = findViewById(R.id.registerTeacherButton);
+        registerButton = findViewById(R.id.submitButton);
         alreadyRegisteredTextView = findViewById(R.id.alreadyRegisteredTextView);
         showPassword = findViewById(R.id.showPassword);
 

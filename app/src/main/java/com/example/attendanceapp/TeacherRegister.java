@@ -21,7 +21,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
@@ -37,10 +36,10 @@ public class TeacherRegister extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_register);
-        emailTeacherRegister = findViewById(R.id.emailTeacherRegister);
+        emailTeacherRegister = findViewById(R.id.titleTextBox);
         passwordTeacherRegister = findViewById(R.id.passwordTeacherRegister);
         alreadyRegisteredTeacher = findViewById(R.id.alreadyRegisteredTeacher);
-        registerTeacherButton = findViewById(R.id.registerTeacherButton);
+        registerTeacherButton = findViewById(R.id.submitButton);
         showPassword = findViewById(R.id.showPassword4);
 
         showPassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

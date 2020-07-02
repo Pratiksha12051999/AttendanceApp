@@ -33,10 +33,10 @@ public class TeacherActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher);
         fAuth = FirebaseAuth.getInstance();
-        emailTeacher = findViewById(R.id.emailTeacherRegister);
+        emailTeacher = findViewById(R.id.titleTextBox);
         passwordTeacher = findViewById(R.id.passwordTeacherRegister);
         notRegisteredTeacher = findViewById(R.id.alreadyRegisteredTeacher);
-        loginTeacherButton = findViewById(R.id.registerTeacherButton);
+        loginTeacherButton = findViewById(R.id.submitButton);
         showPassword = findViewById(R.id.showPassword3);
 
         showPassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

@@ -22,6 +22,7 @@ public class Tabs extends AppCompatActivity implements NavigationView.OnNavigati
     private DrawerLayout drawer;
     FirebaseAuth mAuth;
     Button studentAttendance;
+    Button grievance;
 
     public void showAttributions(View view) {
         Intent attris = new Intent(this, Attributions.class);
@@ -36,6 +37,7 @@ public class Tabs extends AppCompatActivity implements NavigationView.OnNavigati
         mainGrid.setTranslationY(10000);
         mainGrid.animate().translationYBy(-10000).setDuration(1000);
         studentAttendance = findViewById(R.id.studentAttendance);
+        grievance = findViewById(R.id.grievance);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -55,6 +57,14 @@ public class Tabs extends AppCompatActivity implements NavigationView.OnNavigati
             public void onClick(View v) {
                 Intent attendance = new Intent(Tabs.this, StudentAttendance.class);
                 startActivity(attendance);
+            }
+        });
+
+        grievance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent grievancePage = new Intent(Tabs.this, AddGrievance.class);
+                startActivity(grievancePage);
             }
         });
 
