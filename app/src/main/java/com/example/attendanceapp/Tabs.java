@@ -13,28 +13,43 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+
 import android.widget.GridView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class Tabs extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
-    Button announcementButton, examButton, assignButton, eventButton;
-	private DrawerLayout drawer;
+import android.widget.TextView;
+import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+public class Tabs extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    private DrawerLayout drawer;
     FirebaseAuth mAuth;
     Button studentAttendance;
     Button grievance;
-    public void showAttributions(View view){
-        Intent attris=new Intent(this, Attributions.class);
-        startActivity(attris);
+
+    public void showAttributions(View view) { startActivity(new Intent(this, Attributions.class)); }
+
+    public void showResults(View view) {
+        startActivity(new Intent(this, Semesters.class));
+
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tabs);
-        GridLayout mainGrid=(GridLayout)findViewById(R.id.mainGrid);
+        GridLayout mainGrid = (GridLayout) findViewById(R.id.mainGrid);
         mainGrid.setTranslationY(10000);
         mainGrid.animate().translationYBy(-10000).setDuration(1000);
+
 
         announcementButton = findViewById(R.id.cell5);;
         announcementButton.setOnClickListener(new View.OnClickListener() {
@@ -93,6 +108,7 @@ public class Tabs extends AppCompatActivity implements NavigationView.OnNavigati
 //            }
 //        });
 		studentAttendance = findViewById(R.id.studentAttendance);
+
         grievance = findViewById(R.id.grievance);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -121,6 +137,25 @@ public class Tabs extends AppCompatActivity implements NavigationView.OnNavigati
             public void onClick(View v) {
                 Intent grievancePage = new Intent(Tabs.this, AddGrievance.class);
                 startActivity(grievancePage);
+
+            }});
+
+        FirebaseUser current=FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference dbUsers= FirebaseDatabase.getInstance().getReference();
+        dbUsers.child("Users").child(current.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    UserDetails details=dataSnapshot.getValue(UserDetails.class);
+                    TextView studentName=(TextView)findViewById(R.id.tvName);
+                    studentName.setText(details.email.toString());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+
             }
         });
 
@@ -131,7 +166,9 @@ public class Tabs extends AppCompatActivity implements NavigationView.OnNavigati
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         }
+
         super.onBackPressed();
+
     }
 
     @Override

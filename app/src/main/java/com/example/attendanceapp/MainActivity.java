@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
@@ -30,15 +31,17 @@ public class MainActivity extends AppCompatActivity {
     TextView teacherLogin;
     FirebaseAuth fAuth;
     CheckBox showPassword;
+    boolean doubleBackToExitPressedOnce = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         fAuth = FirebaseAuth.getInstance();
-        emailBox = findViewById(R.id.emailTeacherRegister);
+        emailBox = findViewById(R.id.titleTextBox);
         admissionNo = findViewById(R.id.admissionNoRegister);
         passwordField = findViewById(R.id.passwordTeacherRegister);
-        loginButton = findViewById(R.id.registerTeacherButton);
+        loginButton = findViewById(R.id.submitButton);
         notRegistered = findViewById(R.id.noRegistered);
         teacherLogin = findViewById(R.id.teacherLogin);
         showPassword = findViewById(R.id.showPassword2);
@@ -97,8 +100,8 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
-                                Toast.makeText(MainActivity.this, "User Logged In", Toast.LENGTH_SHORT).show();
-                                Intent goToAllTabs = new Intent(MainActivity.this, AllTabsActivity.class);
+                                Toast.makeText(MainActivity.this, "User logged in", Toast.LENGTH_SHORT).show();
+                                Intent goToAllTabs = new Intent(MainActivity.this, Tabs.class);
                                 startActivity(goToAllTabs);
                             }
                             else{
@@ -109,5 +112,24 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+    @Override
+    public void onBackPressed()
+    {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);
     }
 }

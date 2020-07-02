@@ -20,7 +20,7 @@
         app:layout_constraintTop_toBottomOf="@+id/passwordTeacherRegister" />
 
     <EditText
-        android:id="@+id/emailTeacherRegister"
+        android:id="@+id/titleTextBox"
         android:layout_width="267dp"
         android:layout_height="55dp"
         android:layout_marginTop="40dp"
@@ -49,7 +49,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailTeacherRegister" />
+        app:layout_constraintTop_toBottomOf="@+id/titleTextBox" />
 
     <EditText
         android:id="@+id/passwordTeacherRegister"
@@ -76,10 +76,10 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/vesitlogo" />
+        app:srcCompat="@drawable/veslarge" />
 
     <Button
-        android:id="@+id/registerTeacherButton"
+        android:id="@+id/submitButton"
         android:layout_width="252dp"
         android:layout_height="49dp"
         android:layout_marginTop="57dp"
@@ -105,7 +105,7 @@
         android:text="Not Registered ?    |"
         app:layout_constraintEnd_toStartOf="@+id/teacherLogin"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerTeacherButton" />
+        app:layout_constraintTop_toBottomOf="@+id/submitButton" />
 
     <TextView
         android:id="@+id/teacherLogin"
@@ -119,6 +119,6 @@
         android:text="  Teacher Login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/noRegistered"
-        app:layout_constraintTop_toBottomOf="@+id/registerTeacherButton" />
+        app:layout_constraintTop_toBottomOf="@+id/submitButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

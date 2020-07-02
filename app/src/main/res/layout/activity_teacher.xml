@@ -20,7 +20,7 @@
         app:layout_constraintTop_toBottomOf="@+id/passwordTeacherRegister" />
 
     <EditText
-        android:id="@+id/emailTeacherRegister"
+        android:id="@+id/titleTextBox"
         android:layout_width="267dp"
         android:layout_height="55dp"
         android:layout_marginTop="90dp"
@@ -46,7 +46,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailTeacherRegister" />
+        app:layout_constraintTop_toBottomOf="@+id/titleTextBox" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -60,7 +60,7 @@
         app:srcCompat="@drawable/vesitlogo" />
 
     <Button
-        android:id="@+id/registerTeacherButton"
+        android:id="@+id/submitButton"
         android:layout_width="252dp"
         android:layout_height="49dp"
         android:layout_marginTop="50dp"
@@ -83,6 +83,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerTeacherButton" />
+        app:layout_constraintTop_toBottomOf="@+id/submitButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

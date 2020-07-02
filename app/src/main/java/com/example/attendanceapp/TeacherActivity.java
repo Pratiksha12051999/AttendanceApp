@@ -33,10 +33,10 @@ public class TeacherActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher);
         fAuth = FirebaseAuth.getInstance();
-        emailTeacher = findViewById(R.id.emailTeacherRegister);
+        emailTeacher = findViewById(R.id.titleTextBox);
         passwordTeacher = findViewById(R.id.passwordTeacherRegister);
         notRegisteredTeacher = findViewById(R.id.alreadyRegisteredTeacher);
-        loginTeacherButton = findViewById(R.id.registerTeacherButton);
+        loginTeacherButton = findViewById(R.id.submitButton);
         showPassword = findViewById(R.id.showPassword3);
 
         showPassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -77,7 +77,7 @@ public class TeacherActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
                                 Toast.makeText(TeacherActivity.this, "Teacher Logged In", Toast.LENGTH_SHORT).show();
-                                Intent goToAllTabs = new Intent(TeacherActivity.this, AllTabsActivity.class);
+                                Intent goToAllTabs = new Intent(TeacherActivity.this, Teacher_All_Tabs.class);
                                 startActivity(goToAllTabs);
                             }
                             else{
@@ -89,4 +89,13 @@ public class TeacherActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+        startActivity(new Intent(TeacherActivity.this, MainActivity.class));
+        finish();
+    }
+
 }
