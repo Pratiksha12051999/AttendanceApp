@@ -12,11 +12,22 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name=".AddGrievance"></activity>
         <activity android:name=".StudentAttendance" />
+        <activity android:name=".UploadResults" />
+        <activity android:name=".Sem2" />
+        <activity android:name=".Sem1" />
+        <activity android:name=".Sem8" />
+        <activity android:name=".Sem7" />
+        <activity android:name=".Sem6" />
+        <activity android:name=".Sem5" />
+        <activity android:name=".Sem4" />
+        <activity android:name=".Sem3" />
+        <activity android:name=".Semesters" />
         <activity android:name=".UploadAttendance" />
         <activity android:name=".TeacherAttendance" />
         <activity android:name=".Teacher_All_Tabs" />
@@ -33,6 +44,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

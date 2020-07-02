@@ -26,6 +26,11 @@ public class Teacher_All_Tabs extends AppCompatActivity implements NavigationVie
     Button showAttendance;
     TextView iconAttributions;
 
+    public void showResults(View view) {
+        startActivity(new Intent(this, UploadResults.class));
+    }
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +40,7 @@ public class Teacher_All_Tabs extends AppCompatActivity implements NavigationVie
         mainGrid.animate().translationYBy(-10000).setDuration(1000);
         showAttendance = findViewById(R.id.showAttendance);
         iconAttributions = findViewById(R.id.textIconAttributions);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -48,6 +54,7 @@ public class Teacher_All_Tabs extends AppCompatActivity implements NavigationVie
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
         showAttendance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

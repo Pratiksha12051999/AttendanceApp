@@ -5,4 +5,54 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="attendance">ATTENDANCE</string>
     <string name="hello_world">Hello World</string>
+    <string name="result_note">Before uploading the result sheet, please make sure
+your column names are in the required format. To know what column name to give for
+a subject, search for a subject above. Add \'IA\' ahead for internal assessment,
+\'SE\' for end semester marks. Eg. \'BEE IA\', \'BEE SE\'.</string>
+
+    <string-array name="subjects">
+        <item>Applied Physics-1 - API</item>
+        <item>Applied Chemistry-1 - ACI</item>
+        <item>Applied Maths-1 - AMI</item>
+        <item>Basic Electrical Engineering - BEE</item>
+        <item>Engineering Mechanics - EM</item>
+        <item>Environmental Studies - EVS</item>
+        <item>Applied Physics-2 - APII</item>
+        <item>Applied Chemistry-2 - ACII</item>
+        <item>Applied Maths-2 - AMII</item>
+        <item>Engineering Drawing - ED</item>
+        <item>Structured Programming Approach - SPA</item>
+        <item>Communication Skills - CS</item>
+        <item>Applied Maths-3 - AMIII</item>
+        <item>Digital Logic and Design Analysis - DLDA</item>
+        <item>Discrete Mathematics - DM</item>
+        <item>Data Structures - DS</item>
+        <item>Electrical Circuit and Communication Fundamentals - ECCF</item>
+        <item>Applied Maths-4 - AMIV</item>
+        <item>Analysis of Algorithm - AOA</item>
+        <item>Computer Organization and Architecture - COA</item>
+        <item>Computer Graphics - CG</item>
+        <item>Operating System - OS</item>
+        <item>Microprocessor - MP</item>
+        <item>Database Management System - DBMS</item>
+        <item>Computer Networks - CN</item>
+        <item>Theory of Computer Science - TCS</item>
+        <item>Department Level Course-1 - DLOCI</item>
+        <item>Business Communication and Ethics - BCE</item>
+        <item>Software Engineering - SE</item>
+        <item>System Programming and Compiler Construction - SPCC</item>
+        <item>Data Warehousing and Mining - DWM</item>
+        <item>Cryptography and System Security - CSS</item>
+        <item>Department Level Course-2 - DLOCII</item>
+        <item>Mini Project - MiniProject</item>
+        <item>Digital Signal and Image Processing - DSIP</item>
+        <item>Mobile Communication and Computing - MCC</item>
+        <item>Artificial Intelligence and Soft Computing - AISC</item>
+        <item>Department Level Course-3 - DLOCIII</item>
+        <item>Institute Level Course-1 - ILOCI</item>
+        <item>Human Machine Interaction - HMI</item>
+        <item>Distributed Computing - DC</item>
+        <item>Department Level Course-4 - DLOCIV</item>
+        <item>Institute Level Course-2 - ILOCII</item>
+    </string-array>
 </resources>

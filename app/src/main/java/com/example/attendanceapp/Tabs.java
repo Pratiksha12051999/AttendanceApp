@@ -13,9 +13,15 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-
+import android.widget.TextView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Tabs extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -24,9 +30,10 @@ public class Tabs extends AppCompatActivity implements NavigationView.OnNavigati
     Button studentAttendance;
     Button grievance;
 
-    public void showAttributions(View view) {
-        Intent attris = new Intent(this, Attributions.class);
-        startActivity(attris);
+    public void showAttributions(View view) { startActivity(new Intent(this, Attributions.class)); }
+
+    public void showResults(View view) {
+        startActivity(new Intent(this, Semesters.class));
     }
 
     @Override
@@ -65,6 +72,23 @@ public class Tabs extends AppCompatActivity implements NavigationView.OnNavigati
             public void onClick(View v) {
                 Intent grievancePage = new Intent(Tabs.this, AddGrievance.class);
                 startActivity(grievancePage);
+            }});
+
+        FirebaseUser current=FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference dbUsers= FirebaseDatabase.getInstance().getReference();
+        dbUsers.child("Users").child(current.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    UserDetails details=dataSnapshot.getValue(UserDetails.class);
+                    TextView studentName=(TextView)findViewById(R.id.tvName);
+                    studentName.setText(details.email.toString());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
 
@@ -75,7 +99,6 @@ public class Tabs extends AppCompatActivity implements NavigationView.OnNavigati
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         }
-        super.onBackPressed();
     }
 
     @Override
