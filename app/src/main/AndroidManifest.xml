@@ -16,6 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
+
         <activity android:name=".AddGrievance"></activity>
         <activity android:name=".StudentAttendance" />
         <activity android:name=".UploadResults" />
@@ -28,6 +29,7 @@
         <activity android:name=".Sem4" />
         <activity android:name=".Sem3" />
         <activity android:name=".Semesters" />
+
         <activity android:name=".UploadAttendance" />
         <activity android:name=".TeacherAttendance" />
         <activity android:name=".Teacher_All_Tabs" />
@@ -37,6 +39,17 @@
         <activity android:name=".AllTabsActivity" />
         <activity android:name=".TeacherActivity" />
         <activity android:name=".RegisterActivity" />
+        <activity android:name=".Announcements"/>
+        <activity android:name=".AddAnnouncement"/>
+        <activity android:name=".Exam"/>
+        <activity android:name=".Event_details"/>
+        <activity android:name=".Event_click_event_button"/>
+        <activity android:name=".Events_show_cards_on_recycler"/>
+        <activity android:name=".Assignment"/>
+        <activity android:name=".notneededAssignment_yearmain"/>
+        <activity android:name=".Assignment_yearbutton"/>
+        <activity android:name=".Assignment_subject_display_page"/>
+        <activity android:name=".ShowAssignment"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
