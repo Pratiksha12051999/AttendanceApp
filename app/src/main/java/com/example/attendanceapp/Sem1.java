@@ -32,8 +32,8 @@ public class Sem1 extends AppCompatActivity {
                 if (dataSnapshot.exists())
                 {
                     UserDetails details=dataSnapshot.getValue(UserDetails.class);
-                    String aAP1no=details.admissionno.toString();
-                    Query query=FirebaseDatabase.getInstance().getReference("1xdYDgDXnj1ZVODHEdcSAv51ex58GuGVPBrBTQVFOrUs/Sheet1").orderByChild("admissionno").equalTo(Integer.parseInt(aAP1no));
+                    String admno=details.admissionno.toString();
+                    Query query=FirebaseDatabase.getInstance().getReference("1xdYDgDXnj1ZVODHEdcSAv51ex58GuGVPBrBTQVFOrUs/Sheet1").orderByChild("admissionno").equalTo(admno);
                     query.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
